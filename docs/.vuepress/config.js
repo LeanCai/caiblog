@@ -4,6 +4,9 @@ module.exports = {
   description: 'Just playing around',
   markdown: {
     // lineNumbers: true,
+    extendMarkdown: md => {
+      md.use(require("markdown-it-disable-url-encode"));
+    }
   },
   themeConfig: {
     nav: [
