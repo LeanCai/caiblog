@@ -1,6 +1,7 @@
 module.exports = {
   base: "/CaiBlog/",
-  title: "Welcome to CaiBlog",
+  title: "CaiBlog",
+  description: 'Just playing around',
   markdown: {
     // lineNumbers: true,
   },
