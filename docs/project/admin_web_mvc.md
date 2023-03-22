@@ -23,10 +23,14 @@
 - 账号： admin
 - 密码： 123456
 
+### :tada: 效果截图
 ![An image 1](./imgs/admin_mvc_1.png)
 ![An image 2](./imgs/admin_mvc_2.png)
 ![An image 3](./imgs/admin_mvc_3.png)
 ![An image 4](./imgs/admin_mvc_4.jpg)
 ![An image 5](./imgs/admin_mvc_5.jpg)
 ![An image 6](./imgs/admin_mvc_6.png)
-
+![An image 7](./imgs/admin_mvc_7.png)
+![An image 8](./imgs/admin_mvc_8.png)
+![An image 9](./imgs/admin_mvc_9.png)
+![An image 10](./imgs/admin_mvc_10.png)
