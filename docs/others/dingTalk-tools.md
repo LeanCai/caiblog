@@ -1,13 +1,12 @@
 # 钉钉消息工具类封装
 
-
 ::: tip 钉钉自定义机器人接入
 
  [钉钉官方文档](https://open.dingtalk.com/document/orgapp/custom-robot-access) 
 
 :::
 
-::: details 查看C#详细代码
+::: details 查看详细代码
 
 **注意引入RestSharp**
 
@@ -382,3 +381,69 @@ namespace Common.Utils
 ```
 :::
 
+::: details 查看测试代码
+
+```csharp
+List<string> webhooks = new List<string>() { "https://oapi.dingtalk.com/robot/send?access_token=df3af437ee892174d94dc17beb84d3c9f8605819e848f407927fe43e0266ce50" };
+DingTalkClient client = new DingTalkClient(webhooks);
+string secret = "SEC4aaedc1b77115d8fa600987862f060bc8c82dd4471cff53a60ad7f970aacc1a4"; //加签
+client.SetGlobalSecret(secret);
+List<string> atMobiles = new List<string>() { "1234567890123" }; //填入自己的手机号测试
+
+// text消息
+string content = $"测试自定义机器人 {DateTime.Now}  ,aaa,bbb,ccc,ddd";
+var res = client.SendTextMsg(content, atMobiles);
+
+// link消息
+string title = "时代的火车向前开";
+string text = "这个即将发布的新版本，创始人xx称它为红树林。而在此之前，每当面临重大升级，产品经理们都会取一个应景的代号，这一次，为什么是红树林";
+string messageUrl = "https://www.dingtalk.com/s?__biz=MzA4NjMwMTA2Ng==&mid=2650316842&idx=1&sn=60da3ea2b29f1dcc43a7c8e4a7c97a16&scene=2&srcid=09189AnRJEdIiWVaKltFzNTw&from=timeline&isappinstalled=0&key=&ascene=2&uin=&devicetype=android-23&version=26031933&nettype=WIFI";
+var res2 = client.SendLinkMsg(title, text, messageUrl);
+
+// markdown消息
+string title3 = "杭州天气";
+string text3 = $"#### 杭州天气 {client.BuildAtText(atMobiles)} \n > 9度，西北风1级，空气良89，相对温度73%\n > ![screenshot](https://img.alicdn.com/tfs/TB1NwmBEL9TBuNjy1zbXXXpepXa-2400-1218.png)\n > ###### 10点20分发布 [天气](https://www.dingtalk.com) \n";
+var res3 = client.SendMarkdownMsg(title3, text3, atMobiles);
+
+// actionCard消息1
+string title4 = "乔布斯 20 年前想打造一间苹果咖啡厅，而它正是 Apple Store 的前身";
+string text4 = @"![screenshot](https://gw.alicdn.com/tfs/TB1ut3xxbsrBKNjSZFpXXcXhFXa-846-786.png) 
+### 乔布斯 20 年前想打造的苹果咖啡厅 
+Apple Store 的设计正从原来满满的科技感走向生活化，而其生活化的走向其实可以追溯到 20 年前苹果一个建立咖啡馆的计划";
+string singleTitle = "阅读全文";
+string singleURL = client.BuildMsgUrl("https://www.baidu.com/");
+var res4 = client.SendActionCardMsg(title4, text4, singleTitle, singleURL);
+
+// actionCard消息2
+string title5 = "我 20 年前想打造一间苹果咖啡厅，而它正是 Apple Store 的前身";
+string text5 = @"![screenshot](https://gw.alicdn.com/tfs/TB1ut3xxbsrBKNjSZFpXXcXhFXa-846-786.png) 
+### 乔布斯 20 年前想打造的苹果咖啡厅 
+Apple Store 的设计正从原来满满的科技感走向生活化，而其生活化的走向其实可以追溯到 20 年前苹果一个建立咖啡馆的计划";
+string btnOrientation = "0";
+List<DingTalkClient.ActionCardMsgBtn> btns = new List<DingTalkClient.ActionCardMsgBtn>()
+                {
+                    new DingTalkClient.ActionCardMsgBtn(){ title="内容不错",actionURL= client.BuildMsgUrl("https://www.baidu.com/",false) },
+                    new DingTalkClient.ActionCardMsgBtn(){ title="不感兴趣",actionURL= client.BuildMsgUrl("https://www.dingtalk.com/",false) },
+                };
+var res5 = client.SendActionCardMsg(title5, text5, null, null, btnOrientation, btns);
+
+// feedCard消息
+List<DingTalkClient.FeedCardMsgBaseItem> items = new List<DingTalkClient.FeedCardMsgBaseItem>()
+{
+    new DingTalkClient.FeedCardMsgBaseItem()
+    {
+        title="时代的火车向前开1",
+        messageURL=client.BuildMsgUrl("https://www.baidu.com/",false),
+        picURL="https://img.alicdn.com/tfs/TB1NwmBEL9TBuNjy1zbXXXpepXa-2400-1218.png"
+    },
+    new DingTalkClient.FeedCardMsgBaseItem()
+    {
+        title="时代的火车向前开2",
+        messageURL=client.BuildMsgUrl("https://www.baidu.com/",false),
+        picURL="https://img.alicdn.com/tfs/TB1NwmBEL9TBuNjy1zbXXXpepXa-2400-1218.png"
+    }
+};
+var res6 = client.SendFeedCardMsg(items);
+```
+
+:::  
