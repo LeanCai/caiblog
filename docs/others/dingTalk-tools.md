@@ -1,13 +1,13 @@
 # 钉钉消息工具类封装
 
 
-::: tip 钉钉自定义机器人接入C#封装
+::: tip 钉钉自定义机器人接入
 
- [官方文档地址](https://open.dingtalk.com/document/orgapp/custom-robot-access) 
+ [钉钉官方文档](https://open.dingtalk.com/document/orgapp/custom-robot-access) 
 
 :::
 
-::: details 查看详细代码
+::: details 查看C#详细代码
 
 **注意引入RestSharp**
 
@@ -83,6 +83,28 @@ namespace Common.Utils
             DateTime timeStampStartTime = new DateTime(1970, 1, 1, 0, 0, 0, DateTimeKind.Utc);
             return (long)(dateTime.ToUniversalTime() - timeStampStartTime).TotalMilliseconds;
         }
+        public string UrlEncode(string url, System.Text.Encoding encoding = null)
+        {
+            if (encoding == null) { encoding = System.Text.Encoding.UTF8; }
+            var res = System.Web.HttpUtility.UrlEncode(url, encoding);
+            return res;
+        }
+        public string BuildMsgUrl(string url, bool pc_slide = true)
+        {
+            var encodeUrl = UrlEncode(url);
+            string res = $"dingtalk://dingtalkclient/page/link?url={encodeUrl}&pc_slide={(pc_slide ? "true" : "false")}";
+            return res;
+        }
+        public string BuildAtText(List<string> phoneNumbers, string separator = ",")
+        {
+            string text = string.Empty;
+            int i = 0;
+            foreach (var item in phoneNumbers)
+            {
+                text += i < phoneNumbers.Count ? $"@{item}{separator}" : $"@{item}";
+            }
+            return text;
+        }
         public List<string> GetWebHooks()
         {
             string globalSign = string.Empty;
@@ -123,7 +145,7 @@ namespace Common.Utils
             DingTalkMsg msg = new DingTalkMsg();
             msg.msgtype = MsgType.text;
             msg.text = new TextMsg { content = content };
-            if (atMobiles != null || atMobiles.Count > 0 || isAtAll.HasValue)
+            if (atMobiles != null || isAtAll.HasValue)
             {
                 msg.at = new MsgAt { atMobiles = atMobiles, isAtAll = isAtAll };
             }
@@ -132,11 +154,12 @@ namespace Common.Utils
         /// <summary>
         /// link 消息
         /// </summary>
-        /// <param name="content"></param>
-        /// <param name="atMobiles"></param>
-        /// <param name="isAtAll"></param>
+        /// <param name="title"></param>
+        /// <param name="text"></param>
+        /// <param name="messageUrl"></param>
+        /// <param name="picUrl"></param>
         /// <returns></returns>
-        public ResultModel SendLinkMsg(string title, string text, string messageUrl, string picUrl)
+        public ResultModel SendLinkMsg(string title, string text, string messageUrl, string picUrl = null)
         {
             DingTalkMsg msg = new DingTalkMsg();
             msg.msgtype = MsgType.link;
@@ -152,7 +175,8 @@ namespace Common.Utils
         /// <summary>
         /// markdown 消息
         /// </summary>
-        /// <param name="content"></param>
+        /// <param name="title"></param>
+        /// <param name="text"></param>
         /// <param name="atMobiles"></param>
         /// <param name="isAtAll"></param>
         /// <returns></returns>
@@ -165,7 +189,7 @@ namespace Common.Utils
                 title = title,
                 text = text,
             };
-            if (atMobiles != null || atMobiles.Count > 0 || isAtAll.HasValue)
+            if (atMobiles != null || isAtAll.HasValue)
             {
                 msg.at = new MsgAt { atMobiles = atMobiles, isAtAll = isAtAll };
             }
@@ -174,9 +198,12 @@ namespace Common.Utils
         /// <summary>
         /// actionCard 消息
         /// </summary>
-        /// <param name="content"></param>
-        /// <param name="atMobiles"></param>
-        /// <param name="isAtAll"></param>
+        /// <param name="title"></param>
+        /// <param name="text"></param>
+        /// <param name="singleTitle"> 单个按钮的标题。 设置此项和singleURL后，btns无效。</param>
+        /// <param name="singleURL">点击消息跳转的URL，</param>
+        /// <param name="btnOrientation">0：按钮竖直排列,1：按钮横向排列</param>
+        /// <param name="btns">按钮。</param>
         /// <returns></returns>
         public ResultModel SendActionCardMsg(string title, string text, string singleTitle, string singleURL, string btnOrientation = "0", List<ActionCardMsgBtn> btns = null)
         {
@@ -196,17 +223,15 @@ namespace Common.Utils
         /// <summary>
         /// feedCard 消息
         /// </summary>
-        /// <param name="content"></param>
-        /// <param name="atMobiles"></param>
-        /// <param name="isAtAll"></param>
+        /// <param name="links"> 里面所有项必填</param>
         /// <returns></returns>
-        public ResultModel SendFeedCardMsg(params FeedCardMsgBaseItem[] links)
+        public ResultModel SendFeedCardMsg(List<FeedCardMsgBaseItem> links)
         {
             DingTalkMsg msg = new DingTalkMsg();
             msg.msgtype = MsgType.feedCard;
             msg.feedCard = new FeedCardMsg
             {
-                links = links.ToList(),
+                links = links,
             };
             return Send(msg);
         }
@@ -353,7 +378,6 @@ namespace Common.Utils
         #endregion
     }
 }
-
 
 ```
 :::

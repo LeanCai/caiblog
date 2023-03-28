@@ -10,20 +10,9 @@ module.exports = {
   },
   themeConfig: {
     nav: [
-      {
-        text: "项目介绍",
-        link: "/project/",
-        items: [
-          {
-            text: "通用后台MVC版本",
-            link: "/project/admin_web_mvc",
-          },
-          {
-            text: "通用后台前后端分离版本",
-            link: "/project/admin_web_furion",
-          },
-        ]
-      },
+      { text: "项目介绍", link: "/project/" },
+      { text: "杂记", link: "/others/" }, // 内部链接 以docs为根目录
+      { text: "关于", link: "/home/" }, // 内部链接 以docs为根目录
       // 下拉列表
       {
         text: "外部链接",
@@ -38,8 +27,6 @@ module.exports = {
           },
         ],
       },
-      { text: "杂记", link: "/others/" }, // 内部链接 以docs为根目录
-      { text: "关于", link: "/home/" }, // 内部链接 以docs为根目录
     ],
     sidebar: {
       "/project/": [
@@ -49,7 +36,7 @@ module.exports = {
           collapsable: false,
           children: [
             {
-              title: "主要介绍",
+              title: "导航",
               path: "/project/",
             },
             {
@@ -57,7 +44,7 @@ module.exports = {
               path: "/project/admin_web_mvc",
             },
             {
-              title: "通用后台前后端分离",
+              title: "通用后台前后端分离版本",
               path: "/project/admin_web_furion",
             },
           ],
@@ -65,13 +52,17 @@ module.exports = {
       ],
       "/others/": [
         {
-          title: "一些杂记", // 必要的
+          title: "杂记", // 必要的
           path: "/others/", // 可选的, 标题的跳转链接，应为绝对路径且必须存在
           collapsable: false,
           children: [
             {
-              title: "杂记1",
-              path: "/others/one",
+              title: "导航",
+              path: "/others/",
+            },
+            {
+              title: "数据库设计",
+              path: "/others/database-design",
             },
             {
               title: "vue组件封装",
