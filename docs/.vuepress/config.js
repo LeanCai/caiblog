@@ -36,7 +36,7 @@ module.exports = {
           collapsable: false,
           children: [
             {
-              title: "导航",
+              title: "介绍",
               path: "/project/",
             },
             {
@@ -57,7 +57,7 @@ module.exports = {
           collapsable: false,
           children: [
             {
-              title: "导航",
+              title: "介绍",
               path: "/others/",
             },
             {
