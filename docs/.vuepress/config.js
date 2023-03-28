@@ -65,7 +65,7 @@ module.exports = {
       ],
       "/others/": [
         {
-          title: "其他", // 必要的
+          title: "一些杂记", // 必要的
           path: "/others/", // 可选的, 标题的跳转链接，应为绝对路径且必须存在
           collapsable: false,
           children: [
@@ -74,8 +74,12 @@ module.exports = {
               path: "/others/one",
             },
             {
-              title: "杂记2",
-              path: "/others/two",
+              title: "vue组件封装",
+              path: "/others/vue-component-tools",
+            },
+            {
+              title: "钉钉消息工具类封装",
+              path: "/others/dingTalk-tools",
             },
           ],
         },
