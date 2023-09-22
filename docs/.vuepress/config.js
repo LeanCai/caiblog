@@ -72,6 +72,10 @@ module.exports = {
               title: "钉钉消息工具类封装",
               path: "/others/dingTalk-tools",
             },
+            {
+              title: "C#帮助工具类",
+              path: "/others/csharp帮助工具类",
+            },
           ],
         },
       ],
