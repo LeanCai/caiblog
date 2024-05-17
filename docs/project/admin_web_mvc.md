@@ -37,7 +37,7 @@
 
 <table>
     <tr>
-        <td><img src="./imgs/admin_mvc_1.png"/></td>
+        <td><img :src="$withBase('/imgs/admin_mvc_1.png')"/></td>
         <td><img src="./imgs/admin_mvc_2.png"/></td>        
     </tr>
     <tr>

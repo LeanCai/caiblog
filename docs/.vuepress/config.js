@@ -76,6 +76,10 @@ module.exports = {
               title: "C#帮助工具类",
               path: "/others/csharp帮助工具类",
             },
+            {
+              title: "测试页面",
+              path: "/others/测试页面",
+            },
           ],
         },
       ],
@@ -97,6 +101,13 @@ module.exports = {
         },
       ],
     },
+  },
+  configureWebpack: {
+    resolve: {
+      alias: {
+        '@res': 'staticRes'
+      }
+    }
   },
   plugins: [
     [
