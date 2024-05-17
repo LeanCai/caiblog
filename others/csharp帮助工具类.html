@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>C#帮助工具类 | CaiBlog</title>
+    <meta name="generator" content="VuePress 1.9.10">
+    
+    <meta name="description" content="Just playing around">
+    
+    <link rel="preload" href="/CaiBlog/assets/css/0.styles.0dbc8ea2.css" as="style"><link rel="preload" href="/CaiBlog/assets/js/app.1beb6161.js" as="script"><link rel="preload" href="/CaiBlog/assets/js/2.92cb2e48.js" as="script"><link rel="preload" href="/CaiBlog/assets/js/1.a8bac1cb.js" as="script"><link rel="preload" href="/CaiBlog/assets/js/28.7ec0189d.js" as="script"><link rel="prefetch" href="/CaiBlog/assets/js/10.e4f83dd8.js"><link rel="prefetch" href="/CaiBlog/assets/js/11.1a4bf763.js"><link rel="prefetch" href="/CaiBlog/assets/js/12.2760447c.js"><link rel="prefetch" href="/CaiBlog/assets/js/13.97343fa8.js"><link rel="prefetch" href="/CaiBlog/assets/js/14.de2ccbcb.js"><link rel="prefetch" href="/CaiBlog/assets/js/15.e6bfd8d7.js"><link rel="prefetch" href="/CaiBlog/assets/js/16.4a5d0ea2.js"><link rel="prefetch" href="/CaiBlog/assets/js/17.bea98d6e.js"><link rel="prefetch" href="/CaiBlog/assets/js/18.09b92a0e.js"><link rel="prefetch" href="/CaiBlog/assets/js/19.2f0a0610.js"><link rel="prefetch" href="/CaiBlog/assets/js/20.0d7f69de.js"><link rel="prefetch" href="/CaiBlog/assets/js/21.a3e420b7.js"><link rel="prefetch" href="/CaiBlog/assets/js/22.e95c34e0.js"><link rel="prefetch" href="/CaiBlog/assets/js/23.87893c49.js"><link rel="prefetch" href="/CaiBlog/assets/js/24.c8ee3eed.js"><link rel="prefetch" href="/CaiBlog/assets/js/25.97bc7744.js"><link rel="prefetch" href="/CaiBlog/assets/js/26.e64216d3.js"><link rel="prefetch" href="/CaiBlog/assets/js/27.e3b8964c.js"><link rel="prefetch" href="/CaiBlog/assets/js/29.c25f38bb.js"><link rel="prefetch" href="/CaiBlog/assets/js/3.ffe12b0a.js"><link rel="prefetch" href="/CaiBlog/assets/js/30.d1a615d6.js"><link rel="prefetch" href="/CaiBlog/assets/js/31.f7f6ae62.js"><link rel="prefetch" href="/CaiBlog/assets/js/32.13d38b7b.js"><link rel="prefetch" href="/CaiBlog/assets/js/33.dc918fb8.js"><link rel="prefetch" href="/CaiBlog/assets/js/34.80564553.js"><link rel="prefetch" href="/CaiBlog/assets/js/35.ac90764c.js"><link rel="prefetch" href="/CaiBlog/assets/js/36.1cf08fd4.js"><link rel="prefetch" href="/CaiBlog/assets/js/4.575de6ec.js"><link rel="prefetch" href="/CaiBlog/assets/js/5.1f5e9d98.js"><link rel="prefetch" href="/CaiBlog/assets/js/6.82b1d332.js"><link rel="prefetch" href="/CaiBlog/assets/js/7.8212ce3e.js"><link rel="prefetch" href="/CaiBlog/assets/js/vendors~docsearch.8ee43d73.js">
+    <link rel="stylesheet" href="/CaiBlog/assets/css/0.styles.0dbc8ea2.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/CaiBlog/" class="home-link router-link-active"><!----> <span class="site-name">CaiBlog</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/CaiBlog/project/" class="nav-link">
+  项目介绍
+</a></div><div class="nav-item"><a href="/CaiBlog/others/" class="nav-link router-link-active">
+  杂记
+</a></div><div class="nav-item"><a href="/CaiBlog/home/" class="nav-link">
+  关于
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="外部链接" class="dropdown-title"><span class="title">外部链接</span> <span class="arrow down"></span></button> <button type="button" aria-label="外部链接" class="mobile-dropdown-title"><span class="title">外部链接</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="https://github.com/Leancai/CaiBlog" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  文档仓库
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li><li class="dropdown-item"><!----> <a href="https://gitee.com/LeanCai/DapperBaseDal" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  DapperBaseDal
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li></ul></div></div> <!----></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/CaiBlog/project/" class="nav-link">
+  项目介绍
+</a></div><div class="nav-item"><a href="/CaiBlog/others/" class="nav-link router-link-active">
+  杂记
+</a></div><div class="nav-item"><a href="/CaiBlog/home/" class="nav-link">
+  关于
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="外部链接" class="dropdown-title"><span class="title">外部链接</span> <span class="arrow down"></span></button> <button type="button" aria-label="外部链接" class="mobile-dropdown-title"><span class="title">外部链接</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="https://github.com/Leancai/CaiBlog" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  文档仓库
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li><li class="dropdown-item"><!----> <a href="https://gitee.com/LeanCai/DapperBaseDal" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  DapperBaseDal
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li></ul></div></div> <!----></nav>  <ul class="sidebar-links"><li><section class="sidebar-group depth-0"><a href="/CaiBlog/others/" class="sidebar-heading clickable router-link-active open"><span>杂记</span> <!----></a> <ul class="sidebar-links sidebar-group-items"><li><a href="/CaiBlog/others/" aria-current="page" class="sidebar-link">介绍</a></li><li><a href="/CaiBlog/others/database-design.html" class="sidebar-link">数据库设计</a></li><li><a href="/CaiBlog/others/vue-component-tools.html" class="sidebar-link">vue组件封装</a></li><li><a href="/CaiBlog/others/dingTalk-tools.html" class="sidebar-link">钉钉消息工具类封装</a></li><li><a href="/CaiBlog/others/csharp帮助工具类.html" class="active sidebar-link">C#帮助工具类</a><ul class="sidebar-sub-headers"></ul></li><li><a href="/CaiBlog/others/测试页面.html" class="sidebar-link">测试页面</a></li></ul></section></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h1 id="c-帮助工具类"><a href="#c-帮助工具类" class="header-anchor">#</a> C#帮助工具类</h1> <h3 id="_1、获取网页内容"><a href="#_1、获取网页内容" class="header-anchor">#</a> 1、获取网页内容</h3> <div class="language-csharp extra-class"><pre class="language-csharp"><code>
+        <span class="token comment">/// &lt;summary&gt;</span>
+        <span class="token comment">/// 获取网页内容</span>
+        <span class="token comment">/// &lt;/summary&gt;</span>
+        <span class="token comment">/// &lt;param name=&quot;url&quot;&gt;&lt;/param&gt;</span>
+        <span class="token comment">/// &lt;returns&gt;&lt;/returns&gt;</span>
+        <span class="token keyword">protected</span> <span class="token return-type class-name"><span class="token keyword">string</span></span> <span class="token function">GetPageContent</span><span class="token punctuation">(</span><span class="token class-name"><span class="token keyword">string</span></span> url<span class="token punctuation">)</span>
+        <span class="token punctuation">{</span>
+            <span class="token keyword">try</span>
+            <span class="token punctuation">{</span>
+                <span class="token class-name">HttpWebRequest</span> httpReq<span class="token punctuation">;</span>
+                <span class="token class-name">HttpWebResponse</span> httpResp<span class="token punctuation">;</span>
+                <span class="token class-name">Uri</span> httpURL <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token constructor-invocation class-name">Uri</span><span class="token punctuation">(</span>url<span class="token punctuation">)</span><span class="token punctuation">;</span>
+                httpReq <span class="token operator">=</span> <span class="token punctuation">(</span>HttpWebRequest<span class="token punctuation">)</span>WebRequest<span class="token punctuation">.</span><span class="token function">Create</span><span class="token punctuation">(</span>httpURL<span class="token punctuation">)</span><span class="token punctuation">;</span>
+                httpResp <span class="token operator">=</span> <span class="token punctuation">(</span>HttpWebResponse<span class="token punctuation">)</span>httpReq<span class="token punctuation">.</span><span class="token function">GetResponse</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+                <span class="token comment">//string strBuff = string.Empty;</span>
+                <span class="token comment">//char[] cbuffer = new char[256];</span>
+                <span class="token comment">//int byteRead = 0;</span>
+                <span class="token comment">//Stream respStream = httpResp.GetResponseStream();</span>
+                <span class="token comment">//StreamReader respStreamReader = new StreamReader(respStream, Encoding.UTF8);</span>
+                <span class="token comment">//byteRead = respStreamReader.Read(cbuffer, 0, 256);</span>
+                <span class="token comment">//while (byteRead != 0)</span>
+                <span class="token comment">//{</span>
+                <span class="token comment">//    string strResp = new string(cbuffer, 0, byteRead);</span>
+                <span class="token comment">//    strBuff = strBuff + strResp;</span>
+                <span class="token comment">//    byteRead = respStreamReader.Read(cbuffer, 0, 256);</span>
+                <span class="token comment">//}</span>
+                <span class="token comment">//respStream.Close();</span>
+                <span class="token comment">//return strBuff;</span>
+
+                <span class="token class-name"><span class="token keyword">string</span></span> result <span class="token operator">=</span> <span class="token keyword">string</span><span class="token punctuation">.</span>Empty<span class="token punctuation">;</span>
+                <span class="token keyword">using</span> <span class="token punctuation">(</span><span class="token class-name"><span class="token keyword">var</span></span> st <span class="token operator">=</span> httpResp<span class="token punctuation">.</span><span class="token function">GetResponseStream</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+                <span class="token punctuation">{</span>
+                    <span class="token keyword">if</span> <span class="token punctuation">(</span>st <span class="token operator">!=</span> <span class="token keyword">null</span><span class="token punctuation">)</span>
+                    <span class="token punctuation">{</span>
+                        <span class="token keyword">using</span> <span class="token punctuation">(</span><span class="token class-name"><span class="token keyword">var</span></span> sr <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token constructor-invocation class-name">StreamReader</span><span class="token punctuation">(</span>st<span class="token punctuation">,</span> Encoding<span class="token punctuation">.</span>UTF8<span class="token punctuation">)</span><span class="token punctuation">)</span>
+                        <span class="token punctuation">{</span>
+                            result <span class="token operator">=</span> sr<span class="token punctuation">.</span><span class="token function">ReadToEnd</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                        <span class="token punctuation">}</span>
+                    <span class="token punctuation">}</span>
+                <span class="token punctuation">}</span>
+                <span class="token keyword">return</span> result<span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+            <span class="token keyword">catch</span> <span class="token punctuation">(</span><span class="token class-name">Exception</span> ex<span class="token punctuation">)</span>
+            <span class="token punctuation">{</span>
+                <span class="token keyword">throw</span> ex<span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+
+        <span class="token punctuation">}</span>
+
+</code></pre></div></div> <footer class="page-edit"><!----> <!----></footer> <div class="page-nav"><p class="inner"><span class="prev">
+      ←
+      <a href="/CaiBlog/others/dingTalk-tools.html" class="prev">
+        钉钉消息工具类封装
+      </a></span> <span class="next"><a href="/CaiBlog/others/测试页面.html">
+        测试页面
+      </a>
+      →
+    </span></p></div> </main></div><div class="global-ui"></div></div>
+    <script src="/CaiBlog/assets/js/app.1beb6161.js" defer></script><script src="/CaiBlog/assets/js/2.92cb2e48.js" defer></script><script src="/CaiBlog/assets/js/1.a8bac1cb.js" defer></script><script src="/CaiBlog/assets/js/28.7ec0189d.js" defer></script>
+  </body>
+</html>

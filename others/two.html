@@ -1,0 +1,813 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>糟糕的代码 | CaiBlog</title>
+    <meta name="generator" content="VuePress 1.9.10">
+    
+    <meta name="description" content="Just playing around">
+    
+    <link rel="preload" href="/CaiBlog/assets/css/0.styles.0dbc8ea2.css" as="style"><link rel="preload" href="/CaiBlog/assets/js/app.1beb6161.js" as="script"><link rel="preload" href="/CaiBlog/assets/js/2.92cb2e48.js" as="script"><link rel="preload" href="/CaiBlog/assets/js/1.a8bac1cb.js" as="script"><link rel="preload" href="/CaiBlog/assets/js/32.13d38b7b.js" as="script"><link rel="prefetch" href="/CaiBlog/assets/js/10.e4f83dd8.js"><link rel="prefetch" href="/CaiBlog/assets/js/11.1a4bf763.js"><link rel="prefetch" href="/CaiBlog/assets/js/12.2760447c.js"><link rel="prefetch" href="/CaiBlog/assets/js/13.97343fa8.js"><link rel="prefetch" href="/CaiBlog/assets/js/14.de2ccbcb.js"><link rel="prefetch" href="/CaiBlog/assets/js/15.e6bfd8d7.js"><link rel="prefetch" href="/CaiBlog/assets/js/16.4a5d0ea2.js"><link rel="prefetch" href="/CaiBlog/assets/js/17.bea98d6e.js"><link rel="prefetch" href="/CaiBlog/assets/js/18.09b92a0e.js"><link rel="prefetch" href="/CaiBlog/assets/js/19.2f0a0610.js"><link rel="prefetch" href="/CaiBlog/assets/js/20.0d7f69de.js"><link rel="prefetch" href="/CaiBlog/assets/js/21.a3e420b7.js"><link rel="prefetch" href="/CaiBlog/assets/js/22.e95c34e0.js"><link rel="prefetch" href="/CaiBlog/assets/js/23.87893c49.js"><link rel="prefetch" href="/CaiBlog/assets/js/24.c8ee3eed.js"><link rel="prefetch" href="/CaiBlog/assets/js/25.97bc7744.js"><link rel="prefetch" href="/CaiBlog/assets/js/26.e64216d3.js"><link rel="prefetch" href="/CaiBlog/assets/js/27.e3b8964c.js"><link rel="prefetch" href="/CaiBlog/assets/js/28.7ec0189d.js"><link rel="prefetch" href="/CaiBlog/assets/js/29.c25f38bb.js"><link rel="prefetch" href="/CaiBlog/assets/js/3.ffe12b0a.js"><link rel="prefetch" href="/CaiBlog/assets/js/30.d1a615d6.js"><link rel="prefetch" href="/CaiBlog/assets/js/31.f7f6ae62.js"><link rel="prefetch" href="/CaiBlog/assets/js/33.dc918fb8.js"><link rel="prefetch" href="/CaiBlog/assets/js/34.80564553.js"><link rel="prefetch" href="/CaiBlog/assets/js/35.ac90764c.js"><link rel="prefetch" href="/CaiBlog/assets/js/36.1cf08fd4.js"><link rel="prefetch" href="/CaiBlog/assets/js/4.575de6ec.js"><link rel="prefetch" href="/CaiBlog/assets/js/5.1f5e9d98.js"><link rel="prefetch" href="/CaiBlog/assets/js/6.82b1d332.js"><link rel="prefetch" href="/CaiBlog/assets/js/7.8212ce3e.js"><link rel="prefetch" href="/CaiBlog/assets/js/vendors~docsearch.8ee43d73.js">
+    <link rel="stylesheet" href="/CaiBlog/assets/css/0.styles.0dbc8ea2.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/CaiBlog/" class="home-link router-link-active"><!----> <span class="site-name">CaiBlog</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/CaiBlog/project/" class="nav-link">
+  项目介绍
+</a></div><div class="nav-item"><a href="/CaiBlog/others/" class="nav-link router-link-active">
+  杂记
+</a></div><div class="nav-item"><a href="/CaiBlog/home/" class="nav-link">
+  关于
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="外部链接" class="dropdown-title"><span class="title">外部链接</span> <span class="arrow down"></span></button> <button type="button" aria-label="外部链接" class="mobile-dropdown-title"><span class="title">外部链接</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="https://github.com/Leancai/CaiBlog" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  文档仓库
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li><li class="dropdown-item"><!----> <a href="https://gitee.com/LeanCai/DapperBaseDal" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  DapperBaseDal
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li></ul></div></div> <!----></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/CaiBlog/project/" class="nav-link">
+  项目介绍
+</a></div><div class="nav-item"><a href="/CaiBlog/others/" class="nav-link router-link-active">
+  杂记
+</a></div><div class="nav-item"><a href="/CaiBlog/home/" class="nav-link">
+  关于
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="外部链接" class="dropdown-title"><span class="title">外部链接</span> <span class="arrow down"></span></button> <button type="button" aria-label="外部链接" class="mobile-dropdown-title"><span class="title">外部链接</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="https://github.com/Leancai/CaiBlog" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  文档仓库
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li><li class="dropdown-item"><!----> <a href="https://gitee.com/LeanCai/DapperBaseDal" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  DapperBaseDal
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li></ul></div></div> <!----></nav>  <ul class="sidebar-links"><li><section class="sidebar-group depth-0"><a href="/CaiBlog/others/" class="sidebar-heading clickable router-link-active open"><span>杂记</span> <!----></a> <ul class="sidebar-links sidebar-group-items"><li><a href="/CaiBlog/others/" aria-current="page" class="sidebar-link">介绍</a></li><li><a href="/CaiBlog/others/database-design.html" class="sidebar-link">数据库设计</a></li><li><a href="/CaiBlog/others/vue-component-tools.html" class="sidebar-link">vue组件封装</a></li><li><a href="/CaiBlog/others/dingTalk-tools.html" class="sidebar-link">钉钉消息工具类封装</a></li><li><a href="/CaiBlog/others/csharp帮助工具类.html" class="sidebar-link">C#帮助工具类</a></li><li><a href="/CaiBlog/others/测试页面.html" class="sidebar-link">测试页面</a></li></ul></section></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h1 id="糟糕的代码"><a href="#糟糕的代码" class="header-anchor">#</a> 糟糕的代码</h1> <details class="custom-block details"><summary>点击查看代码</summary> <div class="language-csharp extra-class"><pre class="language-csharp"><code>   <span class="token keyword">private</span> <span class="token return-type class-name"><span class="token keyword">string</span></span> <span class="token function">GetGrossProfitReportWhere</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+        <span class="token punctuation">{</span>
+            <span class="token class-name"><span class="token keyword">string</span></span> startTime <span class="token operator">=</span> request<span class="token punctuation">.</span>Params<span class="token punctuation">[</span><span class="token string">&quot;StartTime&quot;</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+            <span class="token class-name"><span class="token keyword">string</span></span> endTime <span class="token operator">=</span> request<span class="token punctuation">.</span>Params<span class="token punctuation">[</span><span class="token string">&quot;EndTime&quot;</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+            <span class="token class-name"><span class="token keyword">string</span></span> ccids <span class="token operator">=</span> request<span class="token punctuation">.</span>Params<span class="token punctuation">[</span><span class="token string">&quot;ccids&quot;</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+
+            <span class="token class-name"><span class="token keyword">string</span></span> tempWhereSql <span class="token operator">=</span> <span class="token keyword">string</span><span class="token punctuation">.</span>Empty<span class="token punctuation">;</span>
+            <span class="token class-name"><span class="token keyword">string</span></span> navyInMonthWhere <span class="token operator">=</span> <span class="token keyword">string</span><span class="token punctuation">.</span>Empty<span class="token punctuation">;</span>
+            <span class="token class-name"><span class="token keyword">string</span></span> navyNotInMonthWhere <span class="token operator">=</span> <span class="token keyword">string</span><span class="token punctuation">.</span>Empty<span class="token punctuation">;</span>
+            <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span><span class="token keyword">string</span><span class="token punctuation">.</span><span class="token function">IsNullOrEmpty</span><span class="token punctuation">(</span>startTime<span class="token punctuation">)</span> <span class="token operator">&amp;&amp;</span> <span class="token operator">!</span><span class="token keyword">string</span><span class="token punctuation">.</span><span class="token function">IsNullOrEmpty</span><span class="token punctuation">(</span>endTime<span class="token punctuation">)</span><span class="token punctuation">)</span>
+            <span class="token punctuation">{</span>
+                tempWhereSql <span class="token operator">+=</span> <span class="token string">@&quot;
+                  AND ( ( type = 0
+                            AND OrderTime BETWEEN '&quot;</span> <span class="token operator">+</span> startTime <span class="token operator">+</span> <span class="token string">@&quot;'
+                                          AND     '&quot;</span> <span class="token operator">+</span> endTime <span class="token operator">+</span> <span class="token string">@&quot;'
+                          )
+                        OR ( type = 1 )
+                        OR ( type = 2 )
+                        )&quot;</span><span class="token punctuation">;</span>
+                navyInMonthWhere <span class="token operator">=</span> <span class="token keyword">string</span><span class="token punctuation">.</span><span class="token function">Format</span><span class="token punctuation">(</span><span class="token string">&quot;NavyPaymentDate BETWEEN '{0}' AND  '{1}' AND PurchaseDate NOT BETWEEN '{0}' AND  '{1}'&quot;</span><span class="token punctuation">,</span> startTime<span class="token punctuation">,</span> endTime<span class="token punctuation">)</span><span class="token punctuation">;</span>
+                navyNotInMonthWhere <span class="token operator">=</span> <span class="token keyword">string</span><span class="token punctuation">.</span><span class="token function">Format</span><span class="token punctuation">(</span><span class="token string">&quot;PurchaseDate BETWEEN '{0}' AND  '{1}' AND NavyPaymentDate NOT BETWEEN '{0}' AND  '{1}'&quot;</span><span class="token punctuation">,</span> startTime<span class="token punctuation">,</span> endTime<span class="token punctuation">)</span><span class="token punctuation">;</span>
+                _csReturnOrderWhere <span class="token operator">+=</span> <span class="token string">&quot; AND CONVERT(datetime,Orders.Bill_Date) BETWEEN '&quot;</span> <span class="token operator">+</span> startTime <span class="token operator">+</span> <span class="token string">&quot;' AND '&quot;</span> <span class="token operator">+</span> endTime <span class="token operator">+</span> <span class="token string">&quot;'&quot;</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+            <span class="token keyword">else</span> <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span><span class="token keyword">string</span><span class="token punctuation">.</span><span class="token function">IsNullOrEmpty</span><span class="token punctuation">(</span>startTime<span class="token punctuation">)</span><span class="token punctuation">)</span>
+            <span class="token punctuation">{</span>
+                tempWhereSql <span class="token operator">+=</span> <span class="token string">@&quot;
+                  AND ( ( type = 0
+                          AND OrderTime &gt;= '&quot;</span> <span class="token operator">+</span> startTime <span class="token operator">+</span> <span class="token string">@&quot;'
+                          )
+                        OR ( type = 1 )
+                        OR ( type = 2 )
+                        )&quot;</span><span class="token punctuation">;</span>
+                _csReturnOrderWhere <span class="token operator">+=</span> <span class="token string">&quot; AND CONVERT(datetime,Orders.Bill_Date) &gt;= '&quot;</span> <span class="token operator">+</span> startTime <span class="token operator">+</span> <span class="token string">&quot;'&quot;</span><span class="token punctuation">;</span>
+                navyInMonthWhere <span class="token operator">=</span> <span class="token string">@&quot;NavyPaymentDate &gt;= '&quot;</span> <span class="token operator">+</span> startTime <span class="token operator">+</span> <span class="token string">@&quot;' AND PurchaseDate &lt;= '&quot;</span> <span class="token operator">+</span> startTime <span class="token operator">+</span> <span class="token string">@&quot;'&quot;</span><span class="token punctuation">;</span>
+                navyNotInMonthWhere <span class="token operator">=</span> <span class="token string">@&quot;PurchaseDate &gt;= '&quot;</span> <span class="token operator">+</span> startTime <span class="token operator">+</span> <span class="token string">@&quot;' AND NavyPaymentDate &lt;= '&quot;</span> <span class="token operator">+</span> startTime <span class="token operator">+</span> <span class="token string">@&quot;'&quot;</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+            <span class="token keyword">else</span> <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span><span class="token keyword">string</span><span class="token punctuation">.</span><span class="token function">IsNullOrEmpty</span><span class="token punctuation">(</span>endTime<span class="token punctuation">)</span><span class="token punctuation">)</span>
+            <span class="token punctuation">{</span>
+                tempWhereSql <span class="token operator">+=</span> <span class="token string">@&quot;
+                  AND ( ( type = 0
+                          AND OrderTime &lt;= '&quot;</span> <span class="token operator">+</span> endTime <span class="token operator">+</span> <span class="token string">@&quot;'
+                          )
+                        OR ( type = 1 )
+                        OR ( type = 2 )
+                        )&quot;</span><span class="token punctuation">;</span>
+                _csReturnOrderWhere <span class="token operator">+=</span> <span class="token string">&quot; AND CONVERT(datetime,Orders.Bill_Date) &lt;= '&quot;</span> <span class="token operator">+</span> endTime <span class="token operator">+</span> <span class="token string">&quot;'&quot;</span><span class="token punctuation">;</span>
+                navyInMonthWhere <span class="token operator">=</span> <span class="token string">@&quot;NavyPaymentDate &lt;= '&quot;</span> <span class="token operator">+</span> endTime <span class="token operator">+</span> <span class="token string">@&quot;' AND PurchaseDate &gt;= '&quot;</span> <span class="token operator">+</span> endTime <span class="token operator">+</span> <span class="token string">@&quot;'&quot;</span><span class="token punctuation">;</span>
+                navyNotInMonthWhere <span class="token operator">=</span> <span class="token string">@&quot;PurchaseDate &lt;= '&quot;</span> <span class="token operator">+</span> endTime <span class="token operator">+</span> <span class="token string">@&quot;' AND NavyPaymentDate &gt;= '&quot;</span> <span class="token operator">+</span> endTime <span class="token operator">+</span> <span class="token string">@&quot;'&quot;</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+            <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span><span class="token keyword">string</span><span class="token punctuation">.</span><span class="token function">IsNullOrEmpty</span><span class="token punctuation">(</span>request<span class="token punctuation">.</span>Params<span class="token punctuation">[</span><span class="token string">&quot;selFulfillmentChannel&quot;</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token operator">&amp;&amp;</span> request<span class="token punctuation">.</span>Params<span class="token punctuation">[</span><span class="token string">&quot;selFulfillmentChannel&quot;</span><span class="token punctuation">]</span> <span class="token operator">!=</span> <span class="token string">&quot;0&quot;</span><span class="token punctuation">)</span>
+            <span class="token punctuation">{</span>
+                _sbWhere<span class="token punctuation">.</span><span class="token function">Append</span><span class="token punctuation">(</span><span class="token string">&quot;and FulfillmentChannel = '&quot;</span> <span class="token operator">+</span> request<span class="token punctuation">.</span>Params<span class="token punctuation">[</span><span class="token string">&quot;selFulfillmentChannel&quot;</span><span class="token punctuation">]</span> <span class="token operator">+</span> <span class="token string">&quot;'&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+            <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span><span class="token keyword">string</span><span class="token punctuation">.</span><span class="token function">IsNullOrEmpty</span><span class="token punctuation">(</span>request<span class="token punctuation">.</span>Params<span class="token punctuation">[</span><span class="token string">&quot;selMarketplace&quot;</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token operator">&amp;&amp;</span> request<span class="token punctuation">.</span>Params<span class="token punctuation">[</span><span class="token string">&quot;selMarketplace&quot;</span><span class="token punctuation">]</span> <span class="token operator">!=</span> <span class="token string">&quot;0&quot;</span><span class="token punctuation">)</span>
+            <span class="token punctuation">{</span>
+                <span class="token comment">//_sbWhere.Append(&quot;and MarketplaceId = '&quot; + request.Params[&quot;selMarketplace&quot;] + &quot;'&quot;);</span>
+                <span class="token class-name">x_MarketplaceSiteBLL</span> x_MarketplaceSiteBLL <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token constructor-invocation class-name">x_MarketplaceSiteBLL</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                <span class="token class-name"><span class="token keyword">var</span></span> xMarketList <span class="token operator">=</span> x_MarketplaceSiteBLL<span class="token punctuation">.</span><span class="token function">GetMarketplaceList</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                <span class="token class-name"><span class="token keyword">var</span></span> market <span class="token operator">=</span> xMarketList<span class="token punctuation">.</span><span class="token function">FirstOrDefault</span><span class="token punctuation">(</span>x <span class="token operator">=&gt;</span> x<span class="token punctuation">.</span>MarketplaceId <span class="token operator">==</span> request<span class="token punctuation">.</span>Params<span class="token punctuation">[</span><span class="token string">&quot;selMarketplace&quot;</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                <span class="token keyword">if</span> <span class="token punctuation">(</span>market <span class="token operator">!=</span> <span class="token keyword">null</span><span class="token punctuation">)</span>
+                <span class="token punctuation">{</span>
+                    _sbWhere<span class="token punctuation">.</span><span class="token function">Append</span><span class="token punctuation">(</span><span class="token interpolation-string"><span class="token string">$&quot; and MSiteId =</span><span class="token interpolation"><span class="token punctuation">{</span><span class="token expression language-csharp">market<span class="token punctuation">.</span>MSiteId</span><span class="token punctuation">}</span></span><span class="token string"> &quot;</span></span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                <span class="token punctuation">}</span>
+            <span class="token punctuation">}</span>
+            <span class="token keyword">if</span> <span class="token punctuation">(</span>ccids<span class="token punctuation">.</span>Length <span class="token operator">&gt;</span> <span class="token number">0</span> <span class="token operator">&amp;&amp;</span> ccids <span class="token operator">!=</span> <span class="token string">&quot;&quot;</span> <span class="token operator">&amp;&amp;</span> ccids <span class="token operator">!=</span> <span class="token string">&quot;-1&quot;</span><span class="token punctuation">)</span>
+            <span class="token punctuation">{</span>
+                tempWhereSql <span class="token operator">+=</span> <span class="token string">&quot; AND CCID IN (&quot;</span> <span class="token operator">+</span> ccids <span class="token operator">+</span> <span class="token string">&quot;)&quot;</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+            <span class="token class-name"><span class="token keyword">string</span></span> feesFileds <span class="token operator">=</span> <span class="token string">&quot; Commission , ProgramShippingCosts ProgramShippingCosts ,&quot;</span><span class="token punctuation">;</span>
+            <span class="token class-name"><span class="token keyword">string</span></span> billAccountSql <span class="token operator">=</span> <span class="token keyword">string</span><span class="token punctuation">.</span>Empty<span class="token punctuation">;</span>
+            <span class="token comment">//使用对账单费用</span>
+            <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span><span class="token keyword">string</span><span class="token punctuation">.</span><span class="token function">IsNullOrEmpty</span><span class="token punctuation">(</span>request<span class="token punctuation">.</span>Params<span class="token punctuation">[</span><span class="token string">&quot;selectFees&quot;</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token operator">&amp;&amp;</span> request<span class="token punctuation">.</span>Params<span class="token punctuation">[</span><span class="token string">&quot;selectFees&quot;</span><span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token function">ToString</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">==</span> <span class="token string">&quot;2&quot;</span><span class="token punctuation">)</span>
+            <span class="token punctuation">{</span>
+                feesFileds <span class="token operator">=</span> <span class="token string">@&quot; (case when b.CommissionQuantity=Orders.Quantity and b.CommissionQuantity&gt;0 and Orders.Price&gt;0 then (b.CommissionFee/b.CommissionQuantity/Orders.Price) else Commission end)Commission ,--佣金
+                                   (case when b.FulfillmentFeeQuantity=Orders.Quantity and b.FulfillmentFeeQuantity&gt;0 then b.FulfillmentFee/b.FulfillmentFeeQuantity else ProgramShippingCosts end) ProgramShippingCosts ,--运费
+                                &quot;</span><span class="token punctuation">;</span>
+                billAccountSql <span class="token operator">=</span> <span class="token string">@&quot;  LEFT JOIN
+                                (
+                                &quot;</span> <span class="token operator">+</span> <span class="token function">GetBillAccountSql</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token string">@&quot;
+                                ) b on Orders.AmazonOrderId=b.Order_Id AND Orders.SellerSKU=b.SKU &quot;</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+            <span class="token comment">//显示采购成本</span>
+            <span class="token class-name"><span class="token keyword">string</span></span> orderPurchaseCostSql <span class="token operator">=</span> <span class="token keyword">string</span><span class="token punctuation">.</span>Empty<span class="token punctuation">;</span>
+            <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span><span class="token keyword">string</span><span class="token punctuation">.</span><span class="token function">IsNullOrEmpty</span><span class="token punctuation">(</span>request<span class="token punctuation">.</span>Params<span class="token punctuation">[</span><span class="token string">&quot;showPurchaseCost&quot;</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token operator">&amp;&amp;</span> request<span class="token punctuation">.</span>Params<span class="token punctuation">[</span><span class="token string">&quot;showPurchaseCost&quot;</span><span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token function">ToString</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">==</span> <span class="token string">&quot;1&quot;</span><span class="token punctuation">)</span>
+            <span class="token punctuation">{</span>
+                orderPurchaseCostSql <span class="token operator">=</span> <span class="token string">@&quot;   LEFT JOIN
+                                         ec_BaseInfo  on Orders.BID=ec_BaseInfo.BID and ec_BaseInfo.VariationMark in(0,1)
+                                         LEFT JOIN
+                                         ec_BaseInfoWithCom_Detail
+                                         on ec_BaseInfo.BID=ec_BaseInfoWithCom_Detail.BID
+                                         LEFT JOIN
+                                         Order_Purchase_Cost  on (CAST( Orders.shopID as varchar(5))+'*'+ Orders.AmazonOrderId)=Order_Purchase_Cost.Ebp_Bill_Code and ec_BaseInfoWithCom_Detail.CS_GoodID=Order_Purchase_Cost.Goods_Id&quot;</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+            <span class="token class-name"><span class="token keyword">string</span></span> reportGroup <span class="token operator">=</span> request<span class="token punctuation">.</span>Params<span class="token punctuation">[</span><span class="token string">&quot;ReportGroup[]&quot;</span><span class="token punctuation">]</span> <span class="token operator">??</span> request<span class="token punctuation">.</span>Params<span class="token punctuation">[</span><span class="token string">&quot;ReportGroup&quot;</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+            <span class="token class-name"><span class="token keyword">decimal</span></span> costPriceBase <span class="token operator">=</span> <span class="token number">1.45m</span><span class="token punctuation">;</span><span class="token comment">//默认基数1.45</span>
+            <span class="token keyword">try</span>
+            <span class="token punctuation">{</span>
+                costPriceBase <span class="token operator">=</span> <span class="token keyword">decimal</span><span class="token punctuation">.</span><span class="token function">Parse</span><span class="token punctuation">(</span>request<span class="token punctuation">.</span>Params<span class="token punctuation">[</span><span class="token string">&quot;costPriceType&quot;</span><span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token function">ToString</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+            <span class="token keyword">catch</span> <span class="token punctuation">(</span><span class="token class-name">Exception</span> ex<span class="token punctuation">)</span> <span class="token punctuation">{</span> <span class="token punctuation">}</span>
+            <span class="token class-name"><span class="token keyword">string</span></span> innerJoinAGBSSql <span class="token operator">=</span> <span class="token keyword">string</span><span class="token punctuation">.</span>Empty<span class="token punctuation">;</span> <span class="token comment">// 使用AGBS下单时间统计</span>
+            <span class="token class-name"><span class="token keyword">string</span></span> strSpecialFields <span class="token operator">=</span> <span class="token keyword">string</span><span class="token punctuation">.</span>Empty<span class="token punctuation">;</span> <span class="token comment">// 特殊查询字段</span>
+            <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span><span class="token keyword">string</span><span class="token punctuation">.</span><span class="token function">IsNullOrEmpty</span><span class="token punctuation">(</span>request<span class="token punctuation">.</span>Params<span class="token punctuation">[</span><span class="token string">&quot;orderTimeType&quot;</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token operator">&amp;&amp;</span> request<span class="token punctuation">.</span>Params<span class="token punctuation">[</span><span class="token string">&quot;orderTimeType&quot;</span><span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token function">ToString</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">==</span> <span class="token string">&quot;1&quot;</span><span class="token punctuation">)</span>
+            <span class="token punctuation">{</span>
+                strSpecialFields <span class="token operator">+=</span> <span class="token string">&quot;,Orders_agbs.Bill_Date AS PurchaseDate&quot;</span><span class="token punctuation">;</span>
+                innerJoinAGBSSql <span class="token operator">=</span> <span class="token string">&quot; INNER JOIN Orders_agbs ON Orders.shopID = Orders_agbs.shopID AND Orders.AmazonOrderId = Orders_agbs.OrderId &quot;</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+            <span class="token keyword">else</span>
+            <span class="token punctuation">{</span>
+                strSpecialFields <span class="token operator">+=</span> <span class="token string">&quot;,PurchaseDate&quot;</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+            <span class="token class-name"><span class="token keyword">bool</span></span> excludeDiscount <span class="token operator">=</span> request<span class="token punctuation">.</span>Params<span class="token punctuation">.</span>AllKeys<span class="token punctuation">.</span><span class="token function">Contains</span><span class="token punctuation">(</span><span class="token string">&quot;ExcludeDiscount&quot;</span><span class="token punctuation">)</span> <span class="token operator">&amp;&amp;</span> request<span class="token punctuation">.</span>Params<span class="token punctuation">[</span><span class="token string">&quot;ExcludeDiscount&quot;</span><span class="token punctuation">]</span> <span class="token operator">==</span> <span class="token string">&quot;true&quot;</span> <span class="token punctuation">?</span> <span class="token boolean">true</span> <span class="token punctuation">:</span> <span class="token boolean">false</span><span class="token punctuation">;</span>
+
+            <span class="token comment">// 默认方案及新旧方案成本取值</span>
+            <span class="token class-name"><span class="token keyword">string</span></span> strCostPrice <span class="token operator">=</span> <span class="token keyword">string</span><span class="token punctuation">.</span>Empty<span class="token punctuation">;</span>
+            <span class="token class-name"><span class="token keyword">string</span></span> strOtherFileds <span class="token operator">=</span> <span class="token keyword">string</span><span class="token punctuation">.</span>Empty<span class="token punctuation">;</span>
+            <span class="token class-name"><span class="token keyword">string</span></span> strInitTable <span class="token operator">=</span> <span class="token keyword">string</span><span class="token punctuation">.</span>Empty<span class="token punctuation">;</span>
+
+            <span class="token keyword">int</span><span class="token punctuation">.</span><span class="token function">TryParse</span><span class="token punctuation">(</span>request<span class="token punctuation">.</span>Params<span class="token punctuation">[</span><span class="token string">&quot;schemeType&quot;</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token keyword">out</span> <span class="token class-name"><span class="token keyword">int</span></span> schemeType<span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token keyword">switch</span> <span class="token punctuation">(</span>schemeType<span class="token punctuation">)</span>
+            <span class="token punctuation">{</span>
+                <span class="token keyword">case</span> <span class="token number">0</span><span class="token punctuation">:</span>
+                    <span class="token punctuation">{</span>
+                        strInitTable <span class="token operator">=</span> <span class="token string">&quot; Orders WITH (NOLOCK)&quot;</span><span class="token punctuation">;</span>
+                        strCostPrice <span class="token operator">=</span> <span class="token interpolation-string"><span class="token string">$@&quot;  CASE WHEN(CASE WHEN TYPE = 0 THEN PurchaseDate ELSE CONVERT(datetime, Orders.Bill_Date) END) &gt;= '2022-07-01 00:00:00'
+
+                                                    THEN
+                                                    (
+                                                        CASE WHEN TYPE = 1
+                                                            THEN CostPrice * (CASE WHEN OrderType IN (2,3) THEN 1 ELSE 0.25 END)
+                                                            ELSE CostPrice
+                                                            END
+                                                    )
+
+                                                    ELSE
+                                                    (CASE WHEN DATEPART(YEAR, (CASE WHEN TYPE = 0 THEN PurchaseDate ELSE Orders.Bill_Date END)) &gt; 2019
+
+                                                        THEN CostPrice * 1.45 ELSE CostPrice * 1.75
+
+                                                        END) /</span><span class="token interpolation"><span class="token punctuation">{</span><span class="token expression language-csharp"> costPriceBase </span><span class="token punctuation">}</span></span><span class="token string">
+                                        END&quot;</span></span><span class="token punctuation">;</span>
+
+                        strOtherFileds <span class="token operator">=</span> <span class="token interpolation-string"><span class="token string">$@&quot; ,(CASE WHEN(CASE WHEN TYPE = 0 THEN PurchaseDate ELSE CONVERT(datetime, Orders.Bill_Date) END) &gt;= '2022-07-01 00:00:00'
+
+                                                    THEN
+                                                    (
+                                                        CASE WHEN OrderType IN (2,3,4)
+							                                            THEN 0
+							                                            ELSE OrderRemovalFee * ExchangeRate
+							                                            END
+                                                    )
+                                                    ELSE OrderRemovalFee * ExchangeRate
+                                                END) AS OrderRemovalFee&quot;</span></span><span class="token punctuation">;</span>
+                    <span class="token punctuation">}</span>
+                    <span class="token keyword">break</span><span class="token punctuation">;</span>
+                <span class="token keyword">case</span> <span class="token number">1</span><span class="token punctuation">:</span>
+                <span class="token keyword">case</span> <span class="token number">2</span><span class="token punctuation">:</span>
+                    <span class="token punctuation">{</span>
+                        strInitTable <span class="token operator">=</span> schemeType <span class="token operator">==</span> <span class="token number">1</span> <span class="token punctuation">?</span> <span class="token string">&quot; OrdersWithP5 AS Orders WITH (NOLOCK)&quot;</span> <span class="token punctuation">:</span> <span class="token string">&quot; OrdersWithP3 AS Orders WITH (NOLOCK)&quot;</span><span class="token punctuation">;</span>
+                        strCostPrice <span class="token operator">=</span> schemeType <span class="token operator">==</span> <span class="token number">1</span>
+                            <span class="token comment">// 旧方案（E价成本/1.75），20220701之前使用系统已有成本，之后使用当前账套实时成本</span>
+                            <span class="token punctuation">?</span> <span class="token interpolation-string"><span class="token string">$@&quot;  CASE WHEN(CASE WHEN TYPE = 0 THEN PurchaseDate ELSE CONVERT(datetime, Orders.Bill_Date) END) &gt;= '2022-07-01 00:00:00'
+
+                                                    THEN
+                                                    (
+                                                       NewCostPrice / </span><span class="token interpolation"><span class="token punctuation">{</span><span class="token expression language-csharp"> costPriceBase </span><span class="token punctuation">}</span></span><span class="token string">
+                                                    )
+
+                                                    ELSE
+                                                    (CASE WHEN DATEPART(YEAR, (CASE WHEN TYPE = 0 THEN PurchaseDate ELSE Orders.Bill_Date END)) &gt; 2019
+
+                                                        THEN CostPrice * 1.45 ELSE CostPrice * 1.75
+
+                                                        END) /</span><span class="token interpolation"><span class="token punctuation">{</span><span class="token expression language-csharp"> costPriceBase </span><span class="token punctuation">}</span></span><span class="token string">
+                                        END&quot;</span></span>
+                                        <span class="token comment">// 新方案（C价成本），20220701之前当前账套实时成本，之后使用使用系统已有成本</span>
+                                        <span class="token punctuation">:</span> <span class="token interpolation-string"><span class="token string">$@&quot;  CASE WHEN(CASE WHEN TYPE = 0 THEN PurchaseDate ELSE CONVERT(datetime, Orders.Bill_Date) END) &gt;= '2022-07-01 00:00:00'
+
+                                                    THEN
+                                                    (
+                                                        CASE WHEN TYPE = 1
+                                                            THEN CostPrice * (CASE WHEN OrderType IN (2,3) THEN 1 ELSE 0.25 END)
+                                                            ELSE CostPrice
+                                                            END
+                                                    )
+
+                                                    ELSE
+                                                    (
+                                                        CASE WHEN TYPE = 1
+                                                            THEN NewCostPrice * (CASE WHEN OrderType IN (2,3) THEN 1 ELSE 0.25 END)
+                                                            ELSE NewCostPrice
+                                                            END
+                                                    )
+                                        END&quot;</span></span><span class="token punctuation">;</span>
+
+                        strOtherFileds <span class="token operator">=</span> schemeType <span class="token operator">==</span> <span class="token number">1</span> <span class="token punctuation">?</span> <span class="token interpolation-string"><span class="token string">$@&quot; ,OrderRemovalFee * ExchangeRate AS OrderRemovalFee&quot;</span></span>
+                                                         <span class="token punctuation">:</span> <span class="token interpolation-string"><span class="token string">$@&quot; , (
+						                                            CASE WHEN OrderType IN (2,3,4)
+							                                            THEN 0
+							                                            ELSE OrderRemovalFee * ExchangeRate
+							                                            END
+						                                            ) AS OrderRemovalFee&quot;</span></span><span class="token punctuation">;</span>
+                    <span class="token punctuation">}</span>
+                    <span class="token keyword">break</span><span class="token punctuation">;</span>
+                <span class="token keyword">default</span><span class="token punctuation">:</span> <span class="token keyword">break</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+
+            <span class="token class-name"><span class="token keyword">string</span></span> strSql <span class="token operator">=</span> <span class="token string">@&quot;
+            SELECT  CASE WHEN type = 1 THEN -1 * temp.Quantity ELSE temp.Quantity END Quantity,
+                    CASE WHEN type = 1 THEN temp.Quantity ELSE 0 END ReturnQuantity,
+                    CASE WHEN type = 0 THEN temp.Quantity ELSE 0 END SalesQuantity,
+                    dbo.d_shopinfo.shopName ,
+                    dbo.x_platForm.pName AS PlatFormName ,
+                    temp.ShopId ,
+                    dbo.d_shopinfo.blongsPlatform AS PlatFormId ,
+                    dbo.d_shopinfo.Comp_id ,
+                    OrderTime ,
+                                    --dbo.p_products.proName AS Title ,
+                                    --ISNULL(a.Quantity, 0) AS ReturnQuantity ,
+                                    --temp.Price * ISNULL(a.Quantity, 0) AS ReturnTotalPrice ,
+                                                --temp.GrossProfitMargin ,
+                                                --temp.GrossProfit ,
+                    temp.WDOrderID ,
+                    (CASE WHEN (type =1 and AfterTaxTotalPrice - AfterTaxCostPrice&gt;0) THEN 0 ELSE AfterTaxTotalPrice - AfterTaxCostPrice END) AS GrossProfit ,
+                    OrderId ,
+                    SKU ,
+                    ReturnMoney ,
+                    OrderRemovalFee ,
+                    --ReturnCostPrice ,
+                    MarketplaceId ,
+                    MSiteId ,
+                    FulfillmentChannel ,
+                    AfterTaxTotalPrice ,
+                    AfterTaxCostPrice ,
+                    CASE WHEN type = 1 THEN 0
+                         ELSE temp.TotalPrice
+                    END TotalPrice ,
+                        temp.TotalPrice AS YTotalPrice ,
+                    TotalAdditionalCostPrice ,
+                    AdditionalCostPrice ,
+                    temp.ProgramShippingCosts ,
+                    temp.VolumeCost ,
+                    CASE WHEN temp.TotalPrice - temp.ReturnMoney = 0 THEN 0
+                         ELSE CASE WHEN type = 1 THEN 0
+                                   ELSE ( AfterTaxTotalPrice - AfterTaxCostPrice )
+                                        / ( temp.TotalPrice - temp.ReturnMoney )
+                              END
+                    END AS GrossProfitMargin ,
+                    temp.CostPrice ,
+                    temp.BID ,
+                    NAVYPrice ,
+                    type ,
+                    Cname,
+                    CCID,
+                    AfterReturnShippingCosts,{2}
+                    Bill_Date,
+                    PurchaseCost
+                    ,TaxRate
+                    ,temp.Commission
+                    ,temp.CostDiscount
+			        ,temp.ExchangeRate
+			        ,temp.NewGoodsDiscount
+                    ,temp.QualityDiscount
+                    ,temp.SupportDiscount
+                    ,temp.SpecialDiscount
+                    ,temp.FixedFee
+                    ,temp.IsNAVY
+                    ,temp.OrderType
+                    ,ReturnManagementFee
+		            {0}
+            FROM    ( SELECT
+                                ec_CustomCategories1.CCID,
+                                ec_CustomCategories1.Cname,
+                                temp.TotalPrice ,
+                                SUM(temp.Quantity) AS Quantity ,
+                                temp.SellerSKU AS SKU ,
+                                temp.shopID ,
+                                temp.PurchaseDate AS OrderTime ,
+                                temp.CostPrice * SUM(temp.Quantity) AS CostPrice ,
+                                temp.WDOrderID ,
+                                temp.AmazonOrderId AS OrderId ,
+                                --SUM(ISNULL(wd_cs_ReturnOrder.Sub_Amt, 0)) Sub_Amt ,
+                                --SUM(SingleCostPrice * wd_cs_ReturnOrder.Sub_Qty) AS ReturnCostPrice ,
+                                --( ( temp.TotalPrice - SUM(ISNULL(wd_cs_ReturnOrder.Sub_Amt,
+                                --                                 0)) ) * ExchangeRate
+                                --  * ( 1 - TaxRate / ( TaxRate + 1 ) - Commission ) ) AfterTaxTotalPrice ,
+                                --( ( SUM(temp.AdditionalCostPrice)
+                                --    + SUM(ProgramShippingCosts) + SUM(VolumeCost) )
+                                --  - SUM(SingleCostPrice * ISNULL(wd_cs_ReturnOrder.Sub_Qty,
+                                --                                 0)) ) AfterTaxCostPrice ,
+                                              --有水军的先扣除水军金额在算毛利
+                                SUM(temp.AfterTaxTotalPrice)
+                                - CAST(SUM(CASE NavyReasonType WHEN 6 THEN 0 ELSE NAVYPrice END) AS DECIMAL(18, 6)) AS AfterTaxTotalPrice ,
+                                (SUM(temp.AdditionalCostPrice)
+                                  + SUM(ProgramShippingCosts)
+                                  + SUM(VolumeCost)
+                                  + SUM(ReturnManagementFee)
+						          + SUM(OrderRemovalFee)
+                                )AS AfterTaxCostPrice ,
+                                --如果是退单的要多算上运费，因为运费没有退回
+                                CASE WHEN temp.type = 1 THEN SUM(ProgramShippingCosts)
+                                     ELSE 0
+                                END AfterReturnShippingCosts ,
+                                    MAX(temp.MarketplaceId)AS MarketplaceId ,
+                                    MAX(temp.MSiteId)AS MSiteId ,
+                                    MAX(FulfillmentChannel) AS FulfillmentChannel  ,
+                                    SUM(temp.AdditionalCostPrice)
+                                    + SUM(ProgramShippingCosts) + SUM(VolumeCost) AS TotalAdditionalCostPrice ,
+                                SUM(ProgramShippingCosts) AS ProgramShippingCosts ,
+                                SUM(VolumeCost) AS VolumeCost ,
+                                SUM(temp.AdditionalCostPrice) AdditionalCostPrice ,
+                                temp.BID ,
+                                SUM(NAVYPrice) AS NAVYPrice ,
+                                temp.type ,
+                                SUM(ReturnMoney) AS ReturnMoney
+                                ,SUM(OrderRemovalFee) AS OrderRemovalFee
+                                ,{2}
+                                MAX(Bill_Date) Bill_Date,
+                                SUM(PurchaseCost) AS PurchaseCost
+                                ,TaxRate
+                                ,Commission
+                                ,MAX(temp.CostDiscount)AS CostDiscount
+							,MAX(temp.ExchangeRate)AS ExchangeRate
+							,MAX(temp.NewGoodsDiscount)AS NewGoodsDiscount
+                            ,MAX(temp.QualityDiscount)AS QualityDiscount
+                            ,MAX(temp.SupportDiscount)AS SupportDiscount
+                            ,MAX(temp.SpecialDiscount)AS SpecialDiscount
+                            ,SUM(temp.FixedFee)AS FixedFee
+                            ,MAX(temp.NavyReasonType)AS NavyReasonType
+                            ,MAX(temp.IsNAVY)AS IsNAVY
+                            ,MAX(OrderType) AS OrderType
+                            ,SUM(ReturnManagementFee)ReturnManagementFee
+                      FROM      ( SELECT    temp1.shopID ,
+                                            AmazonOrderId ,
+                                            (CASE type WHEN 2 THEN 0 ELSE TotalPrice END) TotalPrice,
+                                            ( (CASE type WHEN 2 THEN 0 ELSE temp1.TotalPrice END) * ( 1
+                                                                          - TaxRate
+                                                                          / ( TaxRate + 1 )
+                                                                          - Commission ) ) AfterTaxTotalPrice ,
+                                            (CASE type WHEN 2 THEN 0 ELSE Quantity END) Quantity,
+                                            SellerSKU ,
+                                            PurchaseDate ,
+                                            (CASE type WHEN 2 THEN 0 ELSE  temp1.CostPrice END) CostPrice,
+                                                                        --PublishID ,
+                                            WDOrderID ,
+                                            WDOrderDetID ,
+                                            BID ,
+                                            --wd_OrderDetaliGrossProfit.GoodsId ,
+                                            --( ( ( temp1.AdditionalCostPrice
+                                            --      * wd_OrderDetaliGrossProfit.CostPriceProportion )
+                                            --    + ( ISNULL(ProgramShippingCosts, 0)
+                                            --        / Quantity ) + ( ISNULL(VolumeCost, 0)
+                                            --                         / Quantity ) )
+                                            --  / wd_OrderDetaliGrossProfit.PackageQuantity ) AS SingleCostPrice ,
+                                            FulfillmentChannel ,
+                                            MarketplaceId ,
+                                            MSiteId ,
+                                            (CASE type WHEN 2 THEN 0 ELSE AdditionalCostPrice END) * Quantity AS AdditionalCostPrice ,
+                                            TaxRate ,
+                                            Commission ,
+                                            ISNULL((CASE WHEN type = 1 OR type = 2 THEN 0 ELSE ProgramShippingCosts END), 0) AS ProgramShippingCosts ,
+                                            ISNULL((CASE WHEN type = 1 OR type = 2 THEN 0 ELSE VolumeCost END) , 0) AS VolumeCost ,
+                                            ISNULL(NAVYPrice, 0)
+                                            * ExchangeRate AS NAVYPrice ,
+                                            type ,
+                                            (CASE type WHEN 2 THEN 0 ELSE ReturnMoney END) AS ReturnMoney,
+                                            (CASE type WHEN 2 THEN 0 ELSE ReturnManagementFee END) ReturnManagementFee,
+                                            (CASE type WHEN 2 THEN 0 ELSE OrderRemovalFee END) AS OrderRemovalFee,
+                                            Bill_Date,
+                                            (CASE type WHEN 2 THEN 0 ELSE ISNULL(PurchaseCost,0) END) * Quantity AS PurchaseCost
+                                            ,CostDiscount
+                                            ,ExchangeRate
+                                            ,NewGoodsDiscount
+                                            ,QualityDiscount
+                                            ,SupportDiscount
+                                            ,SpecialDiscount
+                                            ,(FixedFee * ExchangeRate * (CASE WHEN TYPE = 0 THEN 1 ELSE -1 END)) AS FixedFee
+                                            ,NavyReasonType
+                                            ,IsNAVY
+                                            ,OrderType
+                                      FROM      ( SELECT    Orders.ShopId ,
+                                                            AmazonOrderId ,
+                                                        TotalPrice
+                                                        * ExchangeRate AS TotalPrice ,
+                                                        Quantity ,
+                                                        SellerSKU ,
+                                                        --成本时间节点划分 2020之前按单价类型/1.75，2020之后按单价类型/1.45
+                                                        CONVERT(decimal(18,2),
+                                                                    (
+						                                               &quot;</span> <span class="token operator">+</span> strCostPrice <span class="token operator">+</span> <span class="token string">@&quot;
+                                                                    )
+                                                                )AS CostPrice,
+                                                        WDOrderID ,
+                                                        WDOrderDetID ,
+                                                        Orders.BID ,
+                                                        FulfillmentChannel ,
+                                                        MarketplaceId ,
+                                                        MSiteId ,
+                                                        CONVERT(decimal(18,2),
+                                                                    (
+						                                               &quot;</span> <span class="token operator">+</span> strCostPrice <span class="token operator">+</span> <span class="token string">@&quot;
+                                                                    )
+                                                                    * Orders.QualityDiscount * Orders.SupportDiscount * &quot;</span> <span class="token operator">+</span> <span class="token punctuation">(</span>excludeDiscount <span class="token punctuation">?</span> <span class="token string">&quot;1&quot;</span> <span class="token punctuation">:</span> <span class="token string">&quot;Orders.CostDiscount * Orders.NewGoodsDiscount *  Orders.SpecialDiscount&quot;</span><span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token string">@&quot; + (FixedFee * ExchangeRate * (CASE WHEN TYPE=0 THEN 1 ELSE -1 END))
+                                                                )AS AdditionalCostPrice,
+                                                        TaxRate ,
+                                                        ExchangeRate ,
+                                                        &quot;</span> <span class="token operator">+</span> <span class="token punctuation">(</span>excludeDiscount <span class="token punctuation">?</span> <span class="token string">&quot;1&quot;</span> <span class="token punctuation">:</span> <span class="token string">&quot;Orders.CostDiscount&quot;</span><span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token string">@&quot; AS CostDiscount,
+                                                        &quot;</span> <span class="token operator">+</span> <span class="token punctuation">(</span>excludeDiscount <span class="token punctuation">?</span> <span class="token string">&quot;1&quot;</span> <span class="token punctuation">:</span> <span class="token string">&quot;Orders.NewGoodsDiscount&quot;</span><span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token string">@&quot; AS NewGoodsDiscount,
+                                                        &quot;</span> <span class="token operator">+</span> <span class="token punctuation">(</span>excludeDiscount <span class="token punctuation">?</span> <span class="token string">&quot;1&quot;</span> <span class="token punctuation">:</span> <span class="token string">&quot;Orders.SpecialDiscount&quot;</span><span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token string">@&quot; AS SpecialDiscount,
+                                                        QualityDiscount,
+                                                        SupportDiscount,
+                                                        FixedFee,
+                                                      &quot;</span> <span class="token operator">+</span> feesFileds <span class="token operator">+</span> <span class="token string">@&quot;
+                                                        VolumeCost ,
+                                                         (CASE WHEN (&quot;</span> <span class="token operator">+</span> navyInMonthWhere <span class="token operator">+</span> <span class="token string">@&quot;) THEN 2 ELSE type END) AS type ,
+                                                        ReturnMoney
+                                                        * ExchangeRate AS ReturnMoney,
+                                                        (
+					                                        CASE WHEN type = 1 AND LEN(MarketplaceId) &gt; 10
+							                                    THEN (CASE WHEN OrderType = 1 THEN 0 ELSE ReturnMoney * 0.2 * Commission END)
+							                                    ELSE 0
+							                                    END
+					                                     ) AS ReturnManagementFee
+                                                        &quot;</span> <span class="token operator">+</span> strOtherFileds <span class="token operator">+</span> <span class="token string">@&quot;
+                                                       , Orders.Bill_Date,
+                                                       &quot;</span> <span class="token operator">+</span> <span class="token punctuation">(</span><span class="token operator">!</span><span class="token keyword">string</span><span class="token punctuation">.</span><span class="token function">IsNullOrEmpty</span><span class="token punctuation">(</span>orderPurchaseCostSql<span class="token punctuation">)</span> <span class="token punctuation">?</span> <span class="token string">&quot;(ec_BaseInfoWithCom_Detail.PackageQuantity * Order_Purchase_Cost.CbPrice * (CASE WHEN TYPE=0 THEN 1 ELSE -1 END))&quot;</span> <span class="token punctuation">:</span> <span class="token string">&quot;0&quot;</span><span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token string">@&quot; as PurchaseCost,
+                                                       (CASE WHEN (&quot;</span> <span class="token operator">+</span> navyNotInMonthWhere <span class="token operator">+</span> <span class="token string">@&quot;) THEN 0 ELSE NavyAmount END) as NAVYPrice,
+                                                       (
+														   CASE WHEN (&quot;</span> <span class="token operator">+</span> navyNotInMonthWhere <span class="token operator">+</span> <span class="token string">@&quot;)
+															   THEN 0
+															   ELSE
+															   (
+															      CASE WHEN NavyPaymentDate IS NOT NULL THEN 1 ELSE 0 END
+															   )
+															   END) as IsNAVY,
+                                                       OrderType,
+                                                       NavyPaymentDate,
+                                                       NavyReasonType
+                                                       {3}
+                                                  FROM  &quot;</span> <span class="token operator">+</span> strInitTable <span class="token operator">+</span> <span class="token string">@&quot;
+                                                 &quot;</span> <span class="token operator">+</span> innerJoinAGBSSql <span class="token operator">+</span> <span class="token string">@&quot;
+                                                 &quot;</span> <span class="token operator">+</span> billAccountSql <span class="token operator">+</span> <span class="token string">@&quot;
+                                                 &quot;</span> <span class="token operator">+</span> orderPurchaseCostSql <span class="token operator">+</span> <span class="token string">@&quot;
+                                                  WHERE     ( type = 1
+                                                          &quot;</span> <span class="token operator">+</span> _csReturnOrderWhere <span class="token operator">+</span> <span class="token string">@&quot;
+                                                        )
+                                                        OR type = 0
+                                            ) temp1
+                                ) AS temp
+                                INNER JOIN ec_CustomCategories_Item ON ec_CustomCategories_Item.BID = temp.BID AND ec_CustomCategories_Item.Type = 1
+                                INNER JOIN dbo.ec_CustomCategories ON ec_CustomCategories.CCID = ec_CustomCategories_Item.CCID
+                                INNER JOIN ec_CustomCategories ec_CustomCategories1 ON ec_CustomCategories1.CCID = ec_CustomCategories.ParentID
+                                --JOIN dbo.ec_BaseInfo ON ec_BaseInfo.BID = temp.BID
+                                --                        AND VariationMark = 2
+                                --LEFT JOIN ( SELECT  Ebp_Bill_Code ,
+                                --                    Goods_Id ,
+                                --                    SUM(Sub_Amt) Sub_Amt ,
+                                --                    SUM(Sub_Qty) Sub_Qty ,
+                                --                    MAX(OriginalShopId) OriginalShopId
+                                --            FROM    wd_cs_ReturnOrder
+                                --            GROUP BY Ebp_Bill_Code ,
+                                --                    Goods_Id
+                                --          ) wd_cs_ReturnOrder ON Ebp_Bill_Code = temp.AmazonOrderId
+                                --                                 AND OriginalShopId = temp.shopID
+                                --                                 AND Goods_Id = temp.GoodsId
+					              {1}
+                      GROUP BY  temp.TotalPrice ,
+                                temp.Quantity ,
+                                temp.SellerSKU ,
+                                temp.shopID ,
+                                temp.PurchaseDate ,
+                                temp.CostPrice ,
+                                temp.WDOrderID ,
+                                temp.WDOrderDetID ,
+                                temp.AmazonOrderId ,
+                                    --temp.MarketplaceId ,
+                                    --FulfillmentChannel ,
+                                                            --AdditionalCostPrice ,
+                                {2}
+                                temp.BID ,
+                                temp.type,
+                                ec_CustomCategories1.CCID,
+                                ec_CustomCategories1.Cname
+                                ,TaxRate
+                                ,Commission
+                    ) temp
+                    INNER JOIN dbo.d_shopinfo ON dbo.d_shopinfo.shopID = temp.shopID
+                    INNER JOIN dbo.x_platForm ON dbo.x_platForm.PID = dbo.d_shopinfo.blongsPlatform
+                    &quot;</span><span class="token punctuation">;</span>
+            <span class="token comment">//勾选商品的时候</span>
+            <span class="token keyword">if</span> <span class="token punctuation">(</span>reportGroup<span class="token punctuation">.</span><span class="token function">Contains</span><span class="token punctuation">(</span><span class="token string">&quot;SKU&quot;</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+            <span class="token punctuation">{</span>
+                <span class="token comment">//reportGroup += &quot;,Title&quot;;</span>
+            <span class="token punctuation">}</span>
+            <span class="token keyword">else</span>
+            <span class="token punctuation">{</span>
+                <span class="token preprocessor property">#<span class="token directive keyword">region</span> MyRegion</span>
+
+                <span class="token comment">//                strSql = @&quot;</span>
+                <span class="token comment">//                SELECT  DISTINCT</span>
+                <span class="token comment">//                        temp.TotalPrice ,</span>
+                <span class="token comment">//                        dbo.d_shopinfo.shopName ,</span>
+                <span class="token comment">//                        dbo.x_platForm.pName AS PlatFormName ,</span>
+                <span class="token comment">//                        temp.shopID ,</span>
+                <span class="token comment">//                        dbo.d_shopinfo.blongsPlatform AS PlatFormId ,</span>
+                <span class="token comment">//                        dbo.d_shopinfo.Comp_id ,</span>
+                <span class="token comment">//                        temp.PurchaseDate AS OrderTime ,</span>
+                <span class="token comment">//                        ISNULL(dbo.r_OrderReturns.ReturnMoney, 0) AS ReturnMoney ,</span>
+                <span class="token comment">//                        temp.FulfillmentChannel ,</span>
+                <span class="token comment">//                        temp.MarketplaceId ,</span>
+                <span class="token comment">//                        temp.AmazonOrderId ,</span>
+                <span class="token comment">//                        --GrossProfitMargin ,</span>
+                <span class="token comment">//                        --temp.GrossProfit ,</span>
+                <span class="token comment">//                        --CostPrice</span>
+                <span class="token comment">//                        TotalCostPrice ,</span>
+                <span class="token comment">//                        TotalGrossProfit ,</span>
+                <span class="token comment">//                        TotalGrossProfitMargin</span>
+                <span class="token comment">//                FROM      ( SELECT    dbo.wd_order_amazon.WDOrderID ,</span>
+                <span class="token comment">//                                    dbo.wd_order_amazon.shopID ,</span>
+                <span class="token comment">//                                    dbo.wd_order_amazon.OrderAmount AS TotalPrice ,</span>
+                <span class="token comment">//                                    dbo.wd_order_amazon.PurchaseDate ,</span>
+                <span class="token comment">//                                                    --ISNULL(dbo.r_OrderReturns.ReturnMoney,</span>
+                <span class="token comment">//                                                    --      0) AS ReturnMoney ,</span>
+                <span class="token comment">//                                    dbo.wd_order_amazon.AmazonOrderId ,</span>
+                <span class="token comment">//                                    FulfillmentChannel ,</span>
+                <span class="token comment">//                                    wd_order_amazon.MarketplaceId ,</span>
+                <span class="token comment">//                                    PublishID ,</span>
+                <span class="token comment">//                                    TotalCostPrice ,</span>
+                <span class="token comment">//                                    TotalGrossProfit ,</span>
+                <span class="token comment">//                                    TotalGrossProfitMargin</span>
+                <span class="token comment">//                                    --,</span>
+                <span class="token comment">//                                    --SUM(GrossProfitMargin) / COUNT(1) AS GrossProfitMargin ,</span>
+                <span class="token comment">//                                    --SUM(GrossProfit</span>
+                <span class="token comment">//                                    --    * ( dbo.wd_orderDet_amazon.QuantityOrdered</span>
+                <span class="token comment">//                                    --        - dbo.r_OrderReturnsDetail.Quantity )) AS GrossProfit ,</span>
+                <span class="token comment">//                                    --SUM(CostPrice</span>
+                <span class="token comment">//                                    --    * ( dbo.wd_orderDet_amazon.QuantityOrdered</span>
+                <span class="token comment">//                                    --        - dbo.r_OrderReturnsDetail.Quantity )) AS CostPrice</span>
+                <span class="token comment">//                            FROM      dbo.wd_order_amazon WITH ( NOLOCK )</span>
+                <span class="token comment">//                                    INNER JOIN dbo.wd_orderDet_amazon WITH ( NOLOCK ) ON dbo.wd_orderDet_amazon.WDOrderID = dbo.wd_order_amazon.WDOrderID</span>
+                <span class="token comment">//                                    JOIN p_Publish_Offer_Amazon ON p_Publish_Offer_Amazon.ShopID = wd_order_amazon.shopID</span>
+                <span class="token comment">//                                                                    AND p_Publish_Offer_Amazon.MarketplaceID = wd_order_amazon.MarketplaceId</span>
+                <span class="token comment">//                                                                    AND ISNULL(historySellerSKU,</span>
+                <span class="token comment">//                                                                    p_Publish_Offer_Amazon.SellerSKU) = wd_orderDet_amazon.SellerSKU</span>
+                <span class="token comment">//                                    --LEFT OUTER JOIN dbo.r_OrderReturns WITH ( NOLOCK ) ON dbo.r_OrderReturns.WdOrderId = dbo.wd_order_amazon.WDOrderID</span>
+                <span class="token comment">//                                    --                              AND dbo.r_OrderReturns.ShopId = dbo.wd_order_amazon.shopID</span>
+                <span class="token comment">//                                    --                              AND dbo.r_OrderReturns.type = 1</span>
+                <span class="token comment">//                                    --LEFT OUTER JOIN dbo.r_OrderReturnsDetail ON dbo.r_OrderReturnsDetail.OrderReturnsId = dbo.r_OrderReturns.OrderReturnsId</span>
+                <span class="token comment">//                                    --                              AND dbo.wd_orderDet_amazon.WDOrderDetID = dbo.r_OrderReturnsDetail.OrderDetailId</span>
+                <span class="token comment">//                            --WHERE     QuantityOrdered &lt;&gt; 0</span>
+                <span class="token comment">//                            --GROUP BY  dbo.wd_order_amazon.WDOrderID ,</span>
+                <span class="token comment">//                            --          dbo.wd_order_amazon.shopID ,</span>
+                <span class="token comment">//                            --          dbo.wd_order_amazon.BuyerName ,</span>
+                <span class="token comment">//                            --          dbo.wd_order_amazon.OrderAmount ,</span>
+                <span class="token comment">//                            --          dbo.wd_order_amazon.PurchaseDate ,</span>
+                <span class="token comment">//                            --          dbo.wd_order_amazon.AmazonOrderId ,</span>
+                <span class="token comment">//                            --          FulfillmentChannel ,</span>
+                <span class="token comment">//                            --          wd_order_amazon.MarketplaceId ,</span>
+                <span class="token comment">//                            --          PublishID</span>
+                <span class="token comment">//                            UNION ALL</span>
+                <span class="token comment">//                            SELECT    dbo.wd_order_ebay.WDOrderID ,</span>
+                <span class="token comment">//                                    dbo.wd_order_ebay.shopID ,</span>
+                <span class="token comment">//                                    dbo.wd_order_ebay.Total AS TotalPrice ,</span>
+                <span class="token comment">//                                    dbo.wd_order_ebay.CreatedTime AS PurchaseDate ,</span>
+                <span class="token comment">//                                    dbo.wd_order_ebay.OrderID AS AmazonOrderId ,</span>
+                <span class="token comment">//                                    '' FulfillmentChannel ,</span>
+                <span class="token comment">//                                    '' MarketplaceId ,</span>
+                <span class="token comment">//                                    PublishId ,</span>
+                <span class="token comment">//                                    TotalCostPrice ,</span>
+                <span class="token comment">//                                    TotalGrossProfit ,</span>
+                <span class="token comment">//                                    TotalGrossProfitMargin</span>
+                <span class="token comment">//                                    --,</span>
+                <span class="token comment">//                                    --SUM(GrossProfitMargin) / COUNT(1) AS GrossProfitMargin ,</span>
+                <span class="token comment">//                                    --SUM(GrossProfit * ( QuantityPurchased</span>
+                <span class="token comment">//                                    --                    - r_OrderReturnsDetail_1.Quantity )) AS GrossProfit ,</span>
+                <span class="token comment">//                                    --SUM(CostPrice * ( QuantityPurchased</span>
+                <span class="token comment">//                                    --                  - r_OrderReturnsDetail_1.Quantity )) AS CostPrice</span>
+                <span class="token comment">//                            FROM      dbo.wd_order_ebay WITH ( NOLOCK )</span>
+                <span class="token comment">//                                    INNER JOIN dbo.wd_orderDet_ebay WITH ( NOLOCK ) ON dbo.wd_orderDet_ebay.WDOrderID = dbo.wd_order_ebay.WDOrderID</span>
+                <span class="token comment">//                                    JOIN dbo.p_Publish ON p_Publish.ShopId = wd_order_ebay.shopID</span>
+                <span class="token comment">//                                                            AND p_Publish.ItemId = wd_orderDet_ebay.ItemID</span>
+                <span class="token comment">//                                    --LEFT OUTER JOIN dbo.r_OrderReturns AS r_OrderReturns_1</span>
+                <span class="token comment">//                                    --WITH ( NOLOCK ) ON r_OrderReturns_1.WdOrderId = dbo.wd_order_ebay.WDOrderID</span>
+                <span class="token comment">//                                    --                   AND r_OrderReturns_1.ShopId = dbo.wd_order_ebay.shopID</span>
+                <span class="token comment">//                                    --                   AND r_OrderReturns_1.type = 1</span>
+                <span class="token comment">//                                    --LEFT OUTER JOIN dbo.r_OrderReturnsDetail AS r_OrderReturnsDetail_1 ON r_OrderReturnsDetail_1.OrderReturnsId = r_OrderReturns_1.OrderReturnsId</span>
+                <span class="token comment">//                                    --                              AND dbo.wd_orderDet_ebay.WDOrderDetID = r_OrderReturnsDetail_1.OrderDetailId</span>
+                <span class="token comment">//                            --GROUP BY  dbo.wd_order_ebay.WDOrderID ,</span>
+                <span class="token comment">//                            --          dbo.wd_order_ebay.shopID ,</span>
+                <span class="token comment">//                            --          dbo.wd_order_ebay.Name ,</span>
+                <span class="token comment">//                            --          dbo.wd_order_ebay.Total ,</span>
+                <span class="token comment">//                            --          dbo.wd_order_ebay.CreatedTime ,</span>
+                <span class="token comment">//                            --          dbo.wd_order_ebay.OrderID ,</span>
+                <span class="token comment">//                            --          PublishId</span>
+                <span class="token comment">//                            UNION ALL</span>
+                <span class="token comment">//                            SELECT    dbo.wd_Order_PrestaShop.OrderPrestaShopId ,</span>
+                <span class="token comment">//                                    dbo.wd_Order_PrestaShop.ShopId ,</span>
+                <span class="token comment">//                                    dbo.wd_Order_PrestaShop.OrderTotal AS TotalPrice ,</span>
+                <span class="token comment">//                                    dbo.wd_Order_PrestaShop.OrderDate AS PurchaseDate ,</span>
+                <span class="token comment">//                                    dbo.wd_Order_PrestaShop.OrderId AS AmazonOrderId ,</span>
+                <span class="token comment">//                                    '' FulfillmentChannel ,</span>
+                <span class="token comment">//                                    '' MarketplaceId ,</span>
+                <span class="token comment">//                                    PublishID ,</span>
+                <span class="token comment">//                                    TotalCostPrice ,</span>
+                <span class="token comment">//                                    TotalGrossProfit ,</span>
+                <span class="token comment">//                                    TotalGrossProfitMargin</span>
+                <span class="token comment">//                                    --,</span>
+                <span class="token comment">//                                    --SUM(GrossProfitMargin) / COUNT(1) AS GrossProfitMargin ,</span>
+                <span class="token comment">//                                    --SUM(GrossProfit * ( QuantityPurchased</span>
+                <span class="token comment">//                                    --                    - r_OrderReturnsDetail_1.Quantity )) AS GrossProfit ,</span>
+                <span class="token comment">//                                    --SUM(CostPrice * ( QuantityPurchased</span>
+                <span class="token comment">//                                    --                  - r_OrderReturnsDetail_1.Quantity )) AS CostPrice</span>
+                <span class="token comment">//                            FROM      dbo.wd_Order_PrestaShop WITH ( NOLOCK )</span>
+                <span class="token comment">//                                    INNER JOIN dbo.wd_Order_PrestaShop_Item WITH ( NOLOCK ) ON dbo.wd_Order_PrestaShop_Item.OrderPrestaShopId = dbo.wd_Order_PrestaShop.OrderPrestaShopId</span>
+                <span class="token comment">//                                    JOIN dbo.p_Publish_Offer_Bol ON p_Publish_Offer_Bol.ShopID = wd_Order_PrestaShop.ShopId</span>
+                <span class="token comment">//                                                                    AND p_Publish_Offer_Bol.SellerSKU = wd_Order_PrestaShop_Item.SKU</span>
+                <span class="token comment">//                        ) AS temp</span>
+                <span class="token comment">//                        LEFT OUTER JOIN dbo.r_OrderReturns WITH ( NOLOCK ) ON dbo.r_OrderReturns.WdOrderId = temp.WDOrderID</span>
+                <span class="token comment">//                                                                    AND dbo.r_OrderReturns.ShopId = temp.shopID</span>
+                <span class="token comment">//                                                                    AND dbo.r_OrderReturns.type = 1</span>
+                <span class="token comment">//                        INNER JOIN dbo.d_shopinfo ON dbo.d_shopinfo.shopID = temp.shopID</span>
+                <span class="token comment">//                        INNER JOIN dbo.x_platForm ON dbo.x_platForm.PID = dbo.d_shopinfo.blongsPlatform&quot;;</span>
+                <span class="token preprocessor property">#<span class="token directive keyword">endregion</span></span>
+                <span class="token comment">//                strSql = string.Format(strSql, &quot;, wd_cs_ReturnOrder.Sub_Amt AS ReturnDiscount&quot;, @&quot; LEFT JOIN ( SELECT  Ebp_Bill_Code ,</span>
+                <span class="token comment">//                                        Goods_Id ,</span>
+                <span class="token comment">//                                        SUM(Sub_Amt) Sub_Amt ,</span>
+                <span class="token comment">//                                        MAX(OriginalShopId) OriginalShopId</span>
+                <span class="token comment">//                                FROM    wd_cs_ReturnOrder</span>
+                <span class="token comment">//                                WHERE   Goods_Id = -4</span>
+                <span class="token comment">//                                GROUP BY Ebp_Bill_Code ,</span>
+                <span class="token comment">//                                        Goods_Id</span>
+                <span class="token comment">//                              ) wd_cs_ReturnOrder ON Ebp_Bill_Code = temp.OrderId</span>
+                <span class="token comment">//                                                     AND OriginalShopId = temp.shopID</span>
+                <span class="token comment">//          --WHERE     temp.OrderId IN ( SELECT    Ebp_Bill_Code</span>
+                <span class="token comment">//          --                            FROM      wd_cs_ReturnOrder</span>
+                <span class="token comment">//          --                            WHERE     Goods_Id = -4 )</span>
+                <span class="token comment">//        &quot;);</span>
+                <span class="token comment">//                strSql = string.Format(strSql, &quot;&quot;, &quot;&quot;);</span>
+                <span class="token comment">//                if (request.Params[&quot;GroupIds&quot;].Length &gt; 0)</span>
+                <span class="token comment">//                {</span>
+                <span class="token comment">//                    strSql += @&quot;</span>
+                <span class="token comment">//                    JOIN (</span>
+                <span class="token comment">//                        SELECT  ec_CustomCategories_Item.BID</span>
+                <span class="token comment">//                        FROM    dbo.ec_CustomCategories</span>
+                <span class="token comment">//                                JOIN ec_CustomCategories ec_CustomCategories1 ON ec_CustomCategories1.TreeKey LIKE ( '%'</span>
+                <span class="token comment">//                                                                                      + ec_CustomCategories.TreeKey</span>
+                <span class="token comment">//                                                                                      + '%' )</span>
+                <span class="token comment">//                                JOIN dbo.ec_CustomCategories_Item ON ec_CustomCategories_Item.CCID = ec_CustomCategories1.CCID</span>
+                <span class="token comment">//                        WHERE   ec_CustomCategories.CCID = '&quot; + request.Params[&quot;GroupIds&quot;] + @&quot;'</span>
+                <span class="token comment">//                                AND ec_CustomCategories_Item.Type &lt;&gt; 2) cc ON cc.BID = temp.BID&quot;;</span>
+                <span class="token comment">//                }</span>
+                <span class="token comment">//reportGroup += &quot;,SKU&quot;;</span>
+            <span class="token punctuation">}</span>
+
+            <span class="token class-name"><span class="token keyword">string</span></span> sql <span class="token operator">=</span> <span class="token keyword">string</span><span class="token punctuation">.</span>Empty<span class="token punctuation">;</span>
+            <span class="token class-name"><span class="token keyword">string</span></span> otherFileds <span class="token operator">=</span> <span class="token keyword">string</span><span class="token punctuation">.</span>Empty<span class="token punctuation">;</span>
+            <span class="token keyword">if</span> <span class="token punctuation">(</span>request<span class="token punctuation">.</span>Params<span class="token punctuation">[</span><span class="token string">&quot;GroupIds&quot;</span><span class="token punctuation">]</span><span class="token punctuation">.</span>Length <span class="token operator">&gt;</span> <span class="token number">0</span> <span class="token operator">&amp;&amp;</span> request<span class="token punctuation">.</span>Params<span class="token punctuation">[</span><span class="token string">&quot;GroupIds&quot;</span><span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token function">ToString</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">!=</span> <span class="token string">&quot;1&quot;</span><span class="token punctuation">)</span>
+            <span class="token punctuation">{</span>
+                sql <span class="token operator">=</span> <span class="token string">@&quot;
+                WHERE     EXISTS ( SELECT 1
+                                         FROM   ( SELECT DISTINCT
+                                                    BID ,
+                                                    d_ProductResponsibleProgramDetail.ShopId ,
+                                                    CASE WHEN PlatFormType = 'BOL' THEN ''
+                                                         ELSE MarketplaceId
+                                                    END AS MarketplaceId ,
+                                                    CreateDate ,
+                                                    EndDate
+                                            FROM    dbo.d_ProductResponsibleProgram
+                                                    JOIN dbo.d_ProductResponsibleProgramDetail ON d_ProductResponsibleProgram.ProductResponsibleProgramId = d_ProductResponsibleProgramDetail.ProductResponsibleProgramId
+                                                    JOIN dbo.d_ShopAmazonToMarketplace ON d_ShopAmazonToMarketplace.ShopId = d_ProductResponsibleProgramDetail.ShopId
+                                                              AND d_ShopAmazonToMarketplace.MSiteId = d_ProductResponsibleProgram.MSiteId
+                                                    JOIN dbo.d_ProductResponsible_Item ON d_ProductResponsibleProgramDetail.ProductResponsibleProgramId = d_ProductResponsible_Item.ProductResponsibleProgramId
+                                                    WHERE d_ProductResponsible_Item.PRCId In
+                                                    (
+                                                        SELECT p1.PRCId FROM d_ProductResponsibleCategory p1 WHERE p1.PRCId = '&quot;</span> <span class="token operator">+</span> request<span class="token punctuation">.</span>Params<span class="token punctuation">[</span><span class="token string">&quot;GroupIds&quot;</span><span class="token punctuation">]</span> <span class="token operator">+</span> <span class="token string">@&quot;'
+                                                        UNION ALL
+                                                        SELECT p2.PRCId FROM d_ProductResponsibleCategory p1
+                                                        INNER JOIN d_ProductResponsibleCategory p2 ON p2.pPRCId = p1.PRCId
+                                                        WHERE p1.PRCId = '&quot;</span> <span class="token operator">+</span> request<span class="token punctuation">.</span>Params<span class="token punctuation">[</span><span class="token string">&quot;GroupIds&quot;</span><span class="token punctuation">]</span> <span class="token operator">+</span> <span class="token string">@&quot;'
+                                                    )
+                                                ) cc
+                                         WHERE  1=1
+                                                AND cc.BID = temp.BID
+                                                AND cc.ShopId = temp.shopID
+                                                AND cc.MarketplaceId = temp.MarketplaceId
+                                                AND ( ( cc.CreateDate IS NULL
+                                                        OR temp.PurchaseDate &gt; cc.CreateDate
+                                                      )
+                                                      AND ( cc.EndDate IS NULL
+                                                            OR temp.PurchaseDate &lt; cc.EndDate
+                                                          )
+                                                    ) )&quot;</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+            <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token keyword">string</span><span class="token punctuation">.</span><span class="token function">IsNullOrEmpty</span><span class="token punctuation">(</span>request<span class="token punctuation">.</span>Params<span class="token punctuation">[</span><span class="token string">&quot;GroupIds&quot;</span><span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token function">ToString</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token operator">||</span> request<span class="token punctuation">.</span>Params<span class="token punctuation">[</span><span class="token string">&quot;GroupIds&quot;</span><span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token function">ToString</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">==</span> <span class="token string">&quot;1&quot;</span><span class="token punctuation">)</span> <span class="token operator">&amp;&amp;</span> request<span class="token punctuation">.</span>Params<span class="token punctuation">[</span><span class="token string">&quot;needPRC&quot;</span><span class="token punctuation">]</span> <span class="token operator">==</span> <span class="token string">&quot;1&quot;</span><span class="token punctuation">)</span>
+            <span class="token punctuation">{</span>
+                sql <span class="token operator">=</span> <span class="token string">@&quot;       LEFT JOIN ( SELECT DISTINCT
+                                                BID ,
+                                                d_ProductResponsible_Item.PRCId ,
+                                                    --d_ProductResponsibleCategory.Name,
+                                                d_ProductResponsibleProgramDetail.ShopId ,
+                                                CASE WHEN PlatFormType = 'BOL'
+                                                     THEN ''
+                                                     ELSE MarketplaceId
+                                                END AS MarketplaceId ,
+                                                CreateDate ,
+                                                EndDate
+                                       FROM     dbo.d_ProductResponsibleProgram
+                                                JOIN dbo.d_ProductResponsibleProgramDetail ON d_ProductResponsibleProgram.ProductResponsibleProgramId = d_ProductResponsibleProgramDetail.ProductResponsibleProgramId
+                                                JOIN dbo.d_ShopAmazonToMarketplace ON d_ShopAmazonToMarketplace.ShopId = d_ProductResponsibleProgramDetail.ShopId
+                                                              AND d_ShopAmazonToMarketplace.MSiteId = d_ProductResponsibleProgram.MSiteId
+                                                JOIN dbo.d_ProductResponsible_Item ON d_ProductResponsibleProgramDetail.ProductResponsibleProgramId = d_ProductResponsible_Item.ProductResponsibleProgramId
+                                                    --JOIN dbo.d_ProductResponsibleCategory ON d_ProductResponsibleCategory.PRCId = d_ProductResponsible_Item.PRCId
+                                                  --WHERE     d_ProductResponsible_Item.PRCId = '&quot;</span> <span class="token operator">+</span> request<span class="token punctuation">.</span>Params<span class="token punctuation">[</span><span class="token string">&quot;GroupIds&quot;</span><span class="token punctuation">]</span> <span class="token operator">+</span> <span class="token string">@&quot;'
+                                     ) cc ON 1 = 1
+                                             AND cc.BID = temp.BID
+                                             AND cc.ShopId = temp.shopID
+                                             AND cc.MarketplaceId = temp.MarketplaceId
+                                             AND ( ( cc.CreateDate IS NULL
+                                                     OR temp.PurchaseDate &gt; cc.CreateDate
+                                                   )
+                                                   AND ( cc.EndDate IS NULL
+                                                         OR temp.PurchaseDate &lt; cc.EndDate
+                                                       )
+                                                 )&quot;</span><span class="token punctuation">;</span>
+                otherFileds <span class="token operator">=</span> <span class="token string">&quot;PRCId,&quot;</span><span class="token punctuation">;</span>
+
+            <span class="token punctuation">}</span>
+            strSql <span class="token operator">=</span> <span class="token keyword">string</span><span class="token punctuation">.</span><span class="token function">Format</span><span class="token punctuation">(</span>strSql<span class="token punctuation">,</span> <span class="token string">&quot;&quot;</span><span class="token punctuation">,</span> sql<span class="token punctuation">,</span> otherFileds<span class="token punctuation">,</span> strSpecialFields<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+            <span class="token keyword">if</span> <span class="token punctuation">(</span>request<span class="token punctuation">.</span>Params<span class="token punctuation">.</span>AllKeys<span class="token punctuation">.</span><span class="token function">Contains</span><span class="token punctuation">(</span><span class="token string">&quot;NegativeGrossProfit&quot;</span><span class="token punctuation">)</span> <span class="token operator">&amp;&amp;</span> request<span class="token punctuation">.</span>Params<span class="token punctuation">[</span><span class="token string">&quot;NegativeGrossProfit&quot;</span><span class="token punctuation">]</span> <span class="token operator">==</span> <span class="token string">&quot;true&quot;</span><span class="token punctuation">)</span>
+            <span class="token punctuation">{</span>
+                tempWhereSql <span class="token operator">+=</span> <span class="token string">@&quot; AND NOT EXISTS ( SELECT 1
+                                FROM dbo.ec_BaseInfo
+                                WHERE  BarcodeMark = 'L'
+                                            AND ec_BaseInfo.BID = a.BID
+                                            AND a.GrossProfit &lt; 0 )&quot;</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+            <span class="token keyword">if</span> <span class="token punctuation">(</span>request<span class="token punctuation">.</span>Params<span class="token punctuation">.</span>AllKeys<span class="token punctuation">.</span><span class="token function">Contains</span><span class="token punctuation">(</span><span class="token string">&quot;NegativeNAVY&quot;</span><span class="token punctuation">)</span> <span class="token operator">&amp;&amp;</span> <span class="token punctuation">(</span>request<span class="token punctuation">.</span>Params<span class="token punctuation">[</span><span class="token string">&quot;NegativeNAVY&quot;</span><span class="token punctuation">]</span> <span class="token operator">==</span> <span class="token string">&quot;true&quot;</span> <span class="token operator">||</span> request<span class="token punctuation">.</span>Params<span class="token punctuation">[</span><span class="token string">&quot;NegativeNAVY&quot;</span><span class="token punctuation">]</span> <span class="token operator">==</span> <span class="token string">&quot;on&quot;</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+            <span class="token punctuation">{</span>
+                tempWhereSql <span class="token operator">+=</span> <span class="token string">&quot; AND IsNAVY = 0 &quot;</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+            <span class="token keyword">if</span> <span class="token punctuation">(</span>request<span class="token punctuation">.</span>Params<span class="token punctuation">.</span>AllKeys<span class="token punctuation">.</span><span class="token function">Contains</span><span class="token punctuation">(</span><span class="token string">&quot;ContainNAVY&quot;</span><span class="token punctuation">)</span> <span class="token operator">&amp;&amp;</span> <span class="token punctuation">(</span>request<span class="token punctuation">.</span>Params<span class="token punctuation">[</span><span class="token string">&quot;ContainNAVY&quot;</span><span class="token punctuation">]</span> <span class="token operator">==</span> <span class="token string">&quot;true&quot;</span> <span class="token operator">||</span> request<span class="token punctuation">.</span>Params<span class="token punctuation">[</span><span class="token string">&quot;ContainNAVY&quot;</span><span class="token punctuation">]</span> <span class="token operator">==</span> <span class="token string">&quot;on&quot;</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+            <span class="token punctuation">{</span>
+                tempWhereSql <span class="token operator">+=</span> <span class="token string">&quot; AND IsNAVY = 1 &quot;</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+
+            <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span><span class="token keyword">string</span><span class="token punctuation">.</span><span class="token function">IsNullOrEmpty</span><span class="token punctuation">(</span>request<span class="token punctuation">.</span>Params<span class="token punctuation">[</span><span class="token string">&quot;BID&quot;</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+            <span class="token punctuation">{</span>
+                tempWhereSql <span class="token operator">+=</span> <span class="token string">&quot; and BID = '&quot;</span> <span class="token operator">+</span> request<span class="token punctuation">.</span>Params<span class="token punctuation">[</span><span class="token string">&quot;BID&quot;</span><span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token function">Trim</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token string">&quot;'&quot;</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+            <span class="token comment">// 销售类型</span>
+            <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span><span class="token keyword">string</span><span class="token punctuation">.</span><span class="token function">IsNullOrEmpty</span><span class="token punctuation">(</span>request<span class="token punctuation">.</span>Params<span class="token punctuation">[</span><span class="token string">&quot;selSalesType&quot;</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token operator">&amp;&amp;</span> request<span class="token punctuation">.</span>Params<span class="token punctuation">[</span><span class="token string">&quot;selSalesType&quot;</span><span class="token punctuation">]</span> <span class="token operator">!=</span> <span class="token string">&quot;-1&quot;</span><span class="token punctuation">)</span>
+            <span class="token punctuation">{</span>
+                tempWhereSql <span class="token operator">+=</span> <span class="token string">&quot; and type = &quot;</span> <span class="token operator">+</span> request<span class="token punctuation">.</span>Params<span class="token punctuation">[</span><span class="token string">&quot;selSalesType&quot;</span><span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token function">Trim</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token string">&quot;&quot;</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+            <span class="token keyword">if</span> <span class="token punctuation">(</span>request<span class="token punctuation">.</span>Params<span class="token punctuation">[</span><span class="token string">&quot;ifDetailDataLoad&quot;</span><span class="token punctuation">]</span> <span class="token operator">==</span> <span class="token string">&quot;0&quot;</span><span class="token punctuation">)</span>
+            <span class="token punctuation">{</span>
+                <span class="token class-name"><span class="token keyword">string</span></span> leftJoinTable <span class="token operator">=</span> <span class="token string">&quot;&quot;</span><span class="token punctuation">;</span>
+                <span class="token keyword">if</span> <span class="token punctuation">(</span>request<span class="token punctuation">.</span>Params<span class="token punctuation">[</span><span class="token string">&quot;needPRC&quot;</span><span class="token punctuation">]</span> <span class="token operator">==</span> <span class="token string">&quot;1&quot;</span><span class="token punctuation">)</span>
+                <span class="token punctuation">{</span>
+                    reportGroup <span class="token operator">+=</span> <span class="token string">&quot;,a.PRCId,d_ProductResponsibleCategory.Name&quot;</span><span class="token punctuation">;</span>
+                    leftJoinTable <span class="token operator">=</span> <span class="token string">&quot; left JOIN dbo.d_ProductResponsibleCategory ON d_ProductResponsibleCategory.PRCId = a.PRCId&quot;</span><span class="token punctuation">;</span>
+                <span class="token punctuation">}</span>
+                <span class="token keyword">if</span> <span class="token punctuation">(</span>reportGroup<span class="token punctuation">.</span><span class="token function">Contains</span><span class="token punctuation">(</span><span class="token string">&quot;SKU&quot;</span><span class="token punctuation">)</span> <span class="token operator">&amp;&amp;</span> <span class="token operator">!</span>reportGroup<span class="token punctuation">.</span><span class="token function">Contains</span><span class="token punctuation">(</span><span class="token string">&quot;Cname&quot;</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+                    reportGroup <span class="token operator">+=</span> <span class="token string">&quot;,Cname&quot;</span><span class="token punctuation">;</span>
+                strSql <span class="token operator">=</span> <span class="token keyword">string</span><span class="token punctuation">.</span><span class="token function">Format</span><span class="token punctuation">(</span><span class="token string">@&quot;SELECT {0},SUM(Quantity) AS Quantity,SUM(ReturnQuantity) AS ReturnQuantity,SUM(SalesQuantity) AS SalesQuantity,CAST(IIF(SUM(SalesQuantity)=0,0,SUM(ReturnQuantity)*100/SUM(SalesQuantity)) as decimal(18, 2)) AS ReturnRates,ROUND(SUM(TotalPrice),2) TotalPrice,ROUND(SUM(ReturnMoney),2) AS ReturnMoney,ROUND(SUM(OrderRemovalFee),2) AS OrderRemovalFee,ROUND(SUM(TotalPrice-ReturnMoney),2) AS SalesAmount,ROUND(SUM(AdditionalCostPrice),2) AS AdditionalCostPrice ,ROUND(SUM(TotalAdditionalCostPrice),2) AS TotalAdditionalCostPrice ,ROUND(SUM(GrossProfit),2) AS GrossProfit,CASE WHEN SUM(TotalPrice-ReturnMoney)=0 THEN 0 else ROUND(CASE WHEN (SUM(GrossProfit)&lt;0 AND SUM(TotalPrice-ReturnMoney)&lt;0) THEN (-(SUM(GrossProfit)/SUM(TotalPrice-ReturnMoney))) ELSE SUM(GrossProfit)/SUM(TotalPrice-ReturnMoney) END, 4) * 100 end GrossProfitMargin,COALESCE(SUM(NAVYPrice),0) NAVYPrice,CASE WHEN SUM(TotalPrice)=0 THEN 0 else CAST(ISNULL(SUM(ReturnMoney),0)*100/SUM(TotalPrice) AS decimal(18,2)) end SalesReturnRate,ROUND(SUM(PurchaseCost),2) AS PurchaseCost FROM (&quot;</span> <span class="token operator">+</span> strSql <span class="token operator">+</span> <span class="token string">&quot;) a {2} WHERE {1} GROUP BY {0} &quot;</span><span class="token punctuation">,</span> reportGroup<span class="token punctuation">,</span> _sbWhere <span class="token operator">+</span> tempWhereSql<span class="token punctuation">,</span> leftJoinTable<span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+            <span class="token keyword">else</span>
+            <span class="token punctuation">{</span>
+                <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span>reportGroup<span class="token punctuation">.</span><span class="token function">Contains</span><span class="token punctuation">(</span><span class="token string">&quot;SKU&quot;</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+                    reportGroup <span class="token operator">+=</span> <span class="token string">&quot;,SKU,Cname&quot;</span><span class="token punctuation">;</span>
+                strSql <span class="token operator">=</span> <span class="token keyword">string</span><span class="token punctuation">.</span><span class="token function">Format</span><span class="token punctuation">(</span><span class="token string">@&quot;SELECT {0},OrderId,ROUND(TotalPrice,2) AS TotalPrice,ROUND(ReturnMoney,2) AS ReturnMoney,ROUND(OrderRemovalFee,2) AS OrderRemovalFee,ROUND(TotalPrice-ReturnMoney,2) AS SalesAmount,ROUND(AdditionalCostPrice,2) AS AdditionalCostPrice, ROUND(TotalAdditionalCostPrice,2) AS TotalAdditionalCostPrice,ROUND(ISNULL(GrossProfit,0),2) AS GrossProfit,ROUND(ISNULL(GrossProfitMargin,0),4)*100 AS GrossProfitMargin,ISNULL(NAVYPrice,0) NAVYPrice,CASE WHEN TotalPrice=0 THEN 0 else ROUND(ReturnMoney/TotalPrice,4)*100 end SalesReturnRate,ProgramShippingCosts,VolumeCost,Quantity,ROUND(PurchaseCost,2) AS PurchaseCost,FulfillmentChannel,TaxRate ,Commission,BID,MarketplaceId,a.ShopName,CostPrice,CostDiscount,ExchangeRate,NewGoodsDiscount,QualityDiscount,SupportDiscount,SpecialDiscount,FixedFee,IsNAVY,Type,OrderType,ReturnManagementFee FROM (&quot;</span> <span class="token operator">+</span> strSql <span class="token operator">+</span> <span class="token string">&quot;) a WHERE {1}&quot;</span><span class="token punctuation">,</span> reportGroup<span class="token punctuation">,</span> _sbWhere <span class="token operator">+</span> tempWhereSql<span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+            <span class="token keyword">return</span> strSql<span class="token punctuation">;</span>
+</code></pre></div></details></div> <footer class="page-edit"><!----> <!----></footer> <!----> </main></div><div class="global-ui"></div></div>
+    <script src="/CaiBlog/assets/js/app.1beb6161.js" defer></script><script src="/CaiBlog/assets/js/2.92cb2e48.js" defer></script><script src="/CaiBlog/assets/js/1.a8bac1cb.js" defer></script><script src="/CaiBlog/assets/js/32.13d38b7b.js" defer></script>
+  </body>
+</html>
